@@ -1,5 +1,8 @@
-# Object file
-*.o
 
-# Ada Library Information
-*.ali
+# Ignore all .jpg image files.
+*.jpg
+
+#Ignore all of node_modules & PhpStorm hidden folder.
+node_modules/
+.idea/
+.DS_Store
