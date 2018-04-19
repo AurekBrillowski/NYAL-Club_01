@@ -2,7 +2,14 @@
 # Ignore all .jpg image files.
 *.jpg
 
-#Ignore all of node_modules & PhpStorm hidden folder.
-node_modules/
-.idea/
+# Mac OS special file type.
 .DS_Store
+
+/node_modules
+/public/storage
+/public/hot
+/storage/*.key
+/storage/purify
+/vendor
+/.idea
+.env
