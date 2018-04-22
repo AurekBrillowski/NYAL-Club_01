@@ -1,0 +1,118 @@
+<template>
+   <v-flex xs12 sm5 md4>
+      <v-alert type="success" dismissible v-model="successAlert">Successfully added Organization.</v-alert>
+      <ka-form ref="updateForm">
+         <template slot="form_inputs">
+            <v-layout row wrap>
+               <v-flex xs8>
+                  <v-text-field
+                  label="Organization Name"
+                  v-model="newOrganization.organization_name"
+                  hide-details
+                  >
+                  </v-text-field>
+               </v-flex>
+               <v-flex xs4>
+                  <v-text-field
+                     label="State"
+                     v-model="newOrganization.rm_state"
+                     hide-details
+                  >
+                  </v-text-field>
+               </v-flex>
+               <!--<v-flex xs4>-->
+                  <!--<v-select-->
+                  <!--:items="states"-->
+                  <!--label="State"-->
+                  <!--v-model="newOrganization.rm_state"-->
+                  <!--autocomplete-->
+                  <!--dense-->
+                  <!--hide-details-->
+                  <!--&gt;-->
+                  <!--</v-select>-->
+               <!--</v-flex>-->
+            </v-layout>
+            <v-layout row wrap>
+               <v-flex xs6>
+                  <v-text-field
+                  label="Organization Abbr."
+                  v-model="newOrganization.organization_abbreviation"
+                  hide-details
+                  >
+                  </v-text-field>
+               </v-flex>
+               <v-flex xs6>
+                  <v-text-field
+                  label="Organization Website"
+                  v-model="newOrganization.organization_website"
+                  hide-details
+                  >
+                  </v-text-field>
+               </v-flex>
+            </v-layout>
+            <v-layout row wrap>
+               <v-flex xs6>
+                  <v-text-field
+                  label="Contact Name"
+                  v-model="newOrganization.contact_name"
+                  hide-details
+                  >
+                  </v-text-field>
+               </v-flex>
+               <v-flex xs6>
+                  <v-text-field
+                  label="Contact Phone"
+                  v-model="newOrganization.contact_phone"
+                  hide-details
+                  >
+                  </v-text-field>
+               </v-flex>
+            </v-layout>
+         </template>
+         <template slot="form_actions">
+            <v-spacer></v-spacer>
+            <v-btn color="red" @click="cancelCreate">
+               Cancel
+            </v-btn>
+            <v-btn color="green" @click="createOrganization">
+               Submit
+            </v-btn>
+         </template>
+      </ka-form>
+   </v-flex>
+</template>
+
+<script>
+	import KAForm from '../Base/KA-Form.vue'
+	export default {
+		data() {
+			return {
+				newOrganization: {
+					organization_name: null,
+					organization_abbreviation: null,
+					organization_website: null,
+					contact_name: null,
+					contact_phone: null,
+               rm_state: null,
+            },
+             successAlert: false
+			}
+		},
+		methods: {
+			cancelCreate() {
+				this.$store.commit('cancelCreateAction')
+			},
+			createOrganization() {
+				this.$store.dispatch('createOrUpdateOrganization', this.newOrganization)
+//             this.successAlert = true;
+			},
+		},
+		components: {
+			'ka-form': KAForm
+		}
+	}
+</script>
+
+<style>
+
+</style>
