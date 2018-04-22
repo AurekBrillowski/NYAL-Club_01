@@ -40,9 +40,9 @@ class OrganizationController extends Controller
     //
     public function store(Request $request)
     {
-        $organization = $request->isMethod('put') ? Organization::findOrFail($request->organization_id) : new Organization;
+        $organization = $request->isMethod('put') ? Organization::findOrFail($request->id) : new Organization;
 
-        $organization->id = $request->input('organization_id');
+        $organization->id = $request->input('id');
         $organization->organization_name = $request->input('organization_name');
         $organization->organization_abbreviation = $request->input('organization_abbreviation');
         $organization->organization_website = $request->input('organization_website');
