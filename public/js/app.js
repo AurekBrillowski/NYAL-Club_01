@@ -53144,15 +53144,23 @@ var index_esm = {
 		state.organizations.push(newOrganization);
 	},
 	updateOrganization: function updateOrganization(state, updatedOrganization) {
-		console.log(updatedOrganization);
-		// let index = state.organizations.map(org => org.id).indexOf(updatedOrganization.id);
-		// state.organizations.splice(index, 1, updatedOrganization)
+		// console.log(updatedOrganization);
+		var index = state.organizations.map(function (org) {
+			return org.id;
+		}).indexOf(updatedOrganization.id);
+		state.organizations.splice(index, 1, updatedOrganization);
 	},
 	deleteOrganization: function deleteOrganization(state, id) {
 		var index = state.organizations.map(function (org) {
 			return org.id;
 		}).indexOf(id);
 		state.organizations.splice(index, 1);
+	},
+	resetState: function resetState(state) {
+		state.selected = {};
+		state.deleteDialog = true;
+		state.crudActions.create = false;
+		state.crudActions.edit = true;
 	}
 });
 
@@ -53161,11 +53169,15 @@ var index_esm = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
 	getOrganizations: function getOrganizations(_ref) {
 		var commit = _ref.commit;
 
-		axios.get('http://nyal-laravel.dv:85/api/organizations').then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://nyal-laravel.dv:85/api/organizations').then(function (response) {
 			console.log(response);
 			commit('getOrganizations', response.data);
 			commit('selectFirstRow', response.data[0]);
@@ -53186,9 +53198,10 @@ var index_esm = {
 	createOrganization: function createOrganization(_ref3, newOrganization) {
 		var commit = _ref3.commit;
 
-		axios.post('http://nyal-laravel.dv:85/api/organization', newOrganization).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://nyal-laravel.dv:85/api/organization', newOrganization).then(function (response) {
 			console.log(response);
 			commit('createOrganization', response.data);
+			commit('resetState');
 		}).catch(function (error) {
 			return console.log(error);
 		});
@@ -53196,35 +53209,18 @@ var index_esm = {
 	updateOrganization: function updateOrganization(_ref4, updatedOrganization) {
 		var commit = _ref4.commit;
 
-		// axios.put('http://nyal-laravel.dv:85/api/organization/' + updatedOrganization.id)
-		axios.put('http://nyal-laravel.dv:85/api/organization', {
-			id: updatedOrganization.id,
-			organization_name: updatedOrganization.organization_name,
-			organization_abbreviation: updatedOrganization.organization_abbreviation,
-			organization_website: updatedOrganization.organization_website,
-			contact_name: updatedOrganization.contact_name,
-			contact_phone: updatedOrganization.contact_phone,
-			rm_state: updatedOrganization.rm_state
-			// _method: 'PUT',
-		}).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('http://nyal-laravel.dv:85/api/organization', updatedOrganization).then(function (response) {
 			console.log(response.data);
 			commit('updateOrganization', response.data);
-		})
-		// .catch(error => console.log(error))
-		.catch(function (error) {
+			commit('resetState');
+		}).catch(function (error) {
 			if (error.response) {
-				// The request was made and the server responded with a status code
-				// that falls out of the range of 2xx
 				console.log(error.response.data);
 				console.log(error.response.status);
 				console.log(error.response.headers);
 			} else if (error.request) {
-				// The request was made but no response was received
-				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-				// http.ClientRequest in node.js
 				console.log(error.request);
 			} else {
-				// Something happened in setting up the request that triggered an Error
 				console.log('Error', error.message);
 			}
 			console.log(error.config);
@@ -53233,9 +53229,10 @@ var index_esm = {
 	deleteOrganization: function deleteOrganization(_ref5, id) {
 		var commit = _ref5.commit;
 
-		axios.delete('http://nyal-laravel.dv:85/api/organization/' + id).then(function (response) {
-			console.log(response.data);
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('http://nyal-laravel.dv:85/api/organization/' + id).then(function (response) {
+			// console.log(response.data)
 			commit('deleteOrganization', response.data.id);
+			commit('resetState');
 		}).catch(function (error) {
 			return console.log(error);
 		});
