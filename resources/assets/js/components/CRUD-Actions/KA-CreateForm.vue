@@ -4,10 +4,11 @@
       <ka-form ref="updateForm">
          <template slot="form_inputs">
             <v-layout row wrap>
-               <v-flex xs8>
+               <v-flex xs8 :class="{ invalid: $v.newOrganization.organization_name.$error }">
                   <v-text-field
                   label="Organization Name"
                   v-model="newOrganization.organization_name"
+                  @input="$v.newOrganization.organization_name.$touch()"
                   autofocus
                   hide-details
                   >
@@ -61,6 +62,7 @@
                   >
                   </v-text-field>
                </v-flex>
+               <pre> newOrganization: {{ $v.newOrganization }} </pre>
             </v-layout>
          </template>
          <template slot="form_actions">
@@ -78,6 +80,7 @@
 
 <script>
 	import KAForm from '../Base/KA-Form.vue'
+   import { required } from 'vuelidate/lib/validators'
 	export default {
 		data() {
 			return {
@@ -102,6 +105,18 @@
 //             this.successAlert = true;
 			},
 		},
+       validations: {
+			newOrganization: {
+			 organization_name: {
+			 	required: required
+          },
+			 organization_abbreviation: {},
+			 organization_website: {},
+			 contact_name: {},
+			 contact_phone: {},
+			 rm_state: {},
+         }
+       },
        computed: {
 			disableSubmit() {
 				if (this.newOrganization.organization_name.length > 0) {
@@ -117,6 +132,13 @@
 	}
 </script>
 
-<style>
-
+<style scoped>
+   .invalid label {
+      color: red;
+   }
+   .invalid input {
+      /*border: 1px solid red;*/
+      color: red;
+      /*background-color: #ffc9aa;*/
+   }
 </style>
