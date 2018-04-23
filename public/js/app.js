@@ -50557,7 +50557,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50654,11 +50654,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			newOrganization: {
-				organization_name: null,
-				organization_abbreviation: null,
-				organization_website: null,
-				contact_name: null,
-				contact_phone: null,
+				organization_name: '',
+				organization_abbreviation: '',
+				organization_website: '',
+				contact_name: '',
+				contact_phone: '',
 				rm_state: 'TX'
 			},
 			successAlert: false,
@@ -50673,6 +50673,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		createOrganization: function createOrganization() {
 			this.$store.dispatch('createOrUpdateOrganization', this.newOrganization);
 			//             this.successAlert = true;
+		}
+	},
+	computed: {
+		disableSubmit: function disableSubmit() {
+			if (this.newOrganization.organization_name.length > 0) {
+				return false;
+			} else {
+				return true;
+			}
 		}
 	},
 	components: {
@@ -51025,7 +51034,7 @@ var render = function() {
               _c(
                 "v-btn",
                 {
-                  attrs: { color: "green" },
+                  attrs: { color: "green", disabled: _vm.disableSubmit },
                   on: { click: _vm.createOrganization }
                 },
                 [_vm._v("\n            Submit\n         ")]
@@ -53134,6 +53143,7 @@ var index_esm = {
 	selectRow: function selectRow(state, payload) {
 		state.selected = payload;
 		state.deleteDialog = false;
+		state.crudActions.create = false;
 	},
 	getOrganizations: function getOrganizations(state, payload) {
 		state.organizations = payload;

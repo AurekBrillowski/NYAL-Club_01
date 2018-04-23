@@ -68,7 +68,7 @@
             <v-btn color="red" @click="cancelCreate">
                Cancel
             </v-btn>
-            <v-btn color="green" @click="createOrganization">
+            <v-btn color="green" @click="createOrganization" :disabled="disableSubmit">
                Submit
             </v-btn>
          </template>
@@ -82,11 +82,11 @@
 		data() {
 			return {
 				newOrganization: {
-					organization_name: null,
-					organization_abbreviation: null,
-					organization_website: null,
-					contact_name: null,
-					contact_phone: null,
+					organization_name: '',
+					organization_abbreviation: '',
+					organization_website: '',
+					contact_name: '',
+					contact_phone: '',
                rm_state: 'TX',
             },
              successAlert: false,
@@ -102,6 +102,15 @@
 //             this.successAlert = true;
 			},
 		},
+       computed: {
+			disableSubmit() {
+				if (this.newOrganization.organization_name.length > 0) {
+					return false;
+            } else {
+					return true;
+            }
+         }
+       },
 		components: {
 			'ka-form': KAForm
 		}

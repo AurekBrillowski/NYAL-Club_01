@@ -5,7 +5,8 @@ export default {
 	},
 	selectRow(state, payload) {
 		state.selected = payload;
-		state.deleteDialog = false
+		state.deleteDialog = false;
+		state.crudActions.create = false;
 	},
 	getOrganizations(state, payload) {
 		state.organizations = payload;
