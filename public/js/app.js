@@ -50557,7 +50557,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50648,12 +50648,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -50665,9 +50659,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				organization_website: null,
 				contact_name: null,
 				contact_phone: null,
-				rm_state: null
+				rm_state: 'TX'
 			},
-			successAlert: false
+			successAlert: false,
+			states: ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY']
 		};
 	},
 
@@ -50861,6 +50856,7 @@ var render = function() {
                       _c("v-text-field", {
                         attrs: {
                           label: "Organization Name",
+                          autofocus: "",
                           "hide-details": ""
                         },
                         model: {
@@ -50883,8 +50879,14 @@ var render = function() {
                     "v-flex",
                     { attrs: { xs4: "" } },
                     [
-                      _c("v-text-field", {
-                        attrs: { label: "State", "hide-details": "" },
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.states,
+                          label: "State",
+                          autocomplete: "",
+                          dense: "",
+                          "hide-details": ""
+                        },
                         model: {
                           value: _vm.newOrganization.rm_state,
                           callback: function($$v) {
@@ -50985,7 +50987,11 @@ var render = function() {
                     { attrs: { xs6: "" } },
                     [
                       _c("v-text-field", {
-                        attrs: { label: "Contact Phone", "hide-details": "" },
+                        attrs: {
+                          label: "Contact Phone",
+                          mask: "(###) ###-####",
+                          "hide-details": ""
+                        },
                         model: {
                           value: _vm.newOrganization.contact_phone,
                           callback: function($$v) {
@@ -53135,6 +53141,8 @@ var index_esm = {
 	triggerCreateAction: function triggerCreateAction(state) {
 		state.crudActions.create = true;
 		state.crudActions.edit = false;
+		state.selected = {};
+		state.deleteDialog = true;
 	},
 	cancelCreateAction: function cancelCreateAction(state) {
 		state.crudActions.create = false;

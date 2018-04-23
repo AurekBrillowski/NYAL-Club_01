@@ -8,29 +8,22 @@
                   <v-text-field
                   label="Organization Name"
                   v-model="newOrganization.organization_name"
+                  autofocus
                   hide-details
                   >
                   </v-text-field>
                </v-flex>
                <v-flex xs4>
-                  <v-text-field
-                     label="State"
-                     v-model="newOrganization.rm_state"
-                     hide-details
+                  <v-select
+                  :items="states"
+                  label="State"
+                  v-model="newOrganization.rm_state"
+                  autocomplete
+                  dense
+                  hide-details
                   >
-                  </v-text-field>
+                  </v-select>
                </v-flex>
-               <!--<v-flex xs4>-->
-                  <!--<v-select-->
-                  <!--:items="states"-->
-                  <!--label="State"-->
-                  <!--v-model="newOrganization.rm_state"-->
-                  <!--autocomplete-->
-                  <!--dense-->
-                  <!--hide-details-->
-                  <!--&gt;-->
-                  <!--</v-select>-->
-               <!--</v-flex>-->
             </v-layout>
             <v-layout row wrap>
                <v-flex xs6>
@@ -62,6 +55,7 @@
                <v-flex xs6>
                   <v-text-field
                   label="Contact Phone"
+                  mask="(###) ###-####"
                   v-model="newOrganization.contact_phone"
                   hide-details
                   >
@@ -93,9 +87,10 @@
 					organization_website: null,
 					contact_name: null,
 					contact_phone: null,
-               rm_state: null,
+               rm_state: 'TX',
             },
-             successAlert: false
+             successAlert: false,
+			 states: ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'],
 			}
 		},
 		methods: {

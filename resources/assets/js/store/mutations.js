@@ -13,6 +13,8 @@ export default {
 	triggerCreateAction(state) {
 		state.crudActions.create = true;
 		state.crudActions.edit = false;
+		state.selected = {};
+		state.deleteDialog = true
 	},
 	cancelCreateAction(state) {
 		state.crudActions.create = false;
