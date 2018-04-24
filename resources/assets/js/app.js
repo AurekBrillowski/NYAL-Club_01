@@ -16,6 +16,11 @@ import store from './store/index'
 import Vuetify from 'vuetify'
 import Vuelidate from 'vuelidate'
 
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://nyal-laravel-01.dv:85';
+
+
 Vue.use(Vuetify)
 Vue.use(Vuelidate)
 

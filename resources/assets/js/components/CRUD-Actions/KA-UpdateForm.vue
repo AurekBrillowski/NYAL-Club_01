@@ -1,12 +1,12 @@
 <template>
    <v-flex xs12 sm5 md4>
-      <ka-form v-model="valid" ref="form">
+      <ka-form>
          <template slot="form_inputs">
             <v-layout row wrap>
                <v-flex xs8>
                   <v-text-field
                   label="Organization Name"
-                  v-model="selectedRow.organization_name"
+                  v-model="organizationName"
                   hide-details
                   >
                   </v-text-field>
@@ -15,7 +15,7 @@
                   <v-select
                   :items="states"
                   label="State"
-                  v-model="selectedRow.rm_state"
+                  v-model="rmState"
                   autocomplete
                   dense
                   hide-details
@@ -27,7 +27,7 @@
                <v-flex xs6>
                   <v-text-field
                   label="Organization Abbr."
-                  v-model="selectedRow.organization_abbreviation"
+                  v-model="organizationAbbrv"
                   hide-details
                   >
                   </v-text-field>
@@ -35,7 +35,7 @@
                <v-flex xs6>
                   <v-text-field
                   label="Organization Website"
-                  v-model="selectedRow.organization_website"
+                  v-model="organizationWebsite"
                   hide-details
                   >
                   </v-text-field>
@@ -45,7 +45,7 @@
                <v-flex xs6>
                   <v-text-field
                   label="Contact Name"
-                  v-model="selectedRow.contact_name"
+                  v-model="contactName"
                   hide-details
                   >
                   </v-text-field>
@@ -53,7 +53,7 @@
                <v-flex xs6>
                   <v-text-field
                   label="Contact Phone"
-                  v-model="selectedRow.contact_phone"
+                  v-model="contactPhone"
                   hide-details
                   >
                   </v-text-field>
@@ -76,21 +76,61 @@
 <script>
 	import KAForm from '../Base/KA-Form.vue'
 	export default {
-		data() {
-			return {
-				valid: false,
-				states: ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'],
-			}
-		},
 		computed: {
-			selectedRow() {
-				return this.$store.state.selected;
-			}
+			organizationName: {
+				get() {
+					return this.$store.state.organizations.selected.organization_name
+				},
+				set(value) {
+					this.$store.commit('updateOrganizationName', value)
+				}
+			},
+			organizationAbbrv: {
+				get() {
+					return this.$store.state.organizations.selected.organization_abbreviation
+				},
+				set(value) {
+					this.$store.commit('updateOrganizationAbbrv', value)
+				}
+			},
+			organizationWebsite: {
+				get() {
+					return this.$store.state.organizations.selected.organization_website
+				},
+				set(value) {
+					this.$store.commit('updateOrganizationWebsite', value)
+				}
+			},
+			contactName: {
+				get() {
+					return this.$store.state.organizations.selected.contact_name
+				},
+				set(value) {
+					this.$store.commit('updateContactName', value)
+				}
+			},
+			contactPhone: {
+				get() {
+					return this.$store.state.organizations.selected.contact_phone
+				},
+				set(value) {
+					this.$store.commit('updateContactPhone', value)
+				}
+			},
+			rmState: {
+				get() {
+					return this.$store.state.organizations.selected.rm_state
+				},
+				set(value) {
+					this.$store.commit('updateRMState', value)
+				}
+			},
+         states() { return this.$store.getters.abbrvStates; }
 		},
 		methods: {
 			updateOrganization() {
-				var updatedSelectedRow = this.selectedRow;
-				this.$store.dispatch('createOrUpdateOrganization', updatedSelectedRow)
+				var updatedSelectedRow = this.$store.state.organizations.selected;
+				this.$store.dispatch('updateOrganization', updatedSelectedRow)
 			}
 		},
 		components: {

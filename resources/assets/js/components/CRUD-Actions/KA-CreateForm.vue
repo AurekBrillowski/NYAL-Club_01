@@ -4,13 +4,13 @@
       <ka-form ref="updateForm">
          <template slot="form_inputs">
             <v-layout row wrap>
-               <!--<v-flex xs8 :class="{ invalid: $v.newOrganization.organization_name.$error }">-->
                <v-flex xs8>
                   <v-text-field
                   label="Organization Name"
                   v-model="newOrganization.organization_name"
                   autofocus
                   hide-details
+                  :class="{ invalid: $v.newOrganization.organization_name.$error }"
                   >
                   </v-text-field>
                </v-flex>
@@ -93,7 +93,6 @@
                rm_state: 'TX',
             },
              successAlert: false,
-			 states: ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'],
 			}
 		},
 		methods: {
@@ -101,22 +100,22 @@
 				this.$store.commit('cancelCreateAction')
 			},
 			createOrganization() {
-				this.$store.dispatch('createOrUpdateOrganization', this.newOrganization)
+				this.$store.dispatch('createOrganization', this.newOrganization)
 //             this.successAlert = true;
 			},
 		},
-//       validations: {
-//			newOrganization: {
-//			 organization_name: {
-//			 	required: required
-//          },
-//			 organization_abbreviation: {},
-//			 organization_website: {},
-//			 contact_name: {},
-//			 contact_phone: {},
-//			 rm_state: {},
-//         }
-//       },
+       validations: {
+			newOrganization: {
+			 organization_name: {
+			 	required: required
+          },
+			 organization_abbreviation: {},
+			 organization_website: {},
+			 contact_name: {},
+			 contact_phone: {},
+			 rm_state: {},
+         }
+       },
        computed: {
 			disableSubmit() {
 				if (this.newOrganization.organization_name.length > 0) {
@@ -124,7 +123,8 @@
             } else {
 					return true;
             }
-         }
+         },
+	       states() { return this.$store.getters.abbrvStates; }
        },
 		components: {
 			'ka-form': KAForm
@@ -133,12 +133,12 @@
 </script>
 
 <style scoped>
-   /*.invalid label {*/
-      /*color: red;*/
-   /*}*/
-   /*.invalid input {*/
-      /*border: 1px solid red;*/
-      /*color: red;*/
-      /*background-color: #ffc9aa;*/
-   /*}*/
+   .invalid label {
+      color: red;
+   }
+   .invalid input {
+      border: 1px solid red;
+      color: red;
+      background-color: #ffc9aa;
+   }
 </style>
