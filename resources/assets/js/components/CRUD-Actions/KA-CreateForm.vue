@@ -4,11 +4,11 @@
       <ka-form ref="updateForm">
          <template slot="form_inputs">
             <v-layout row wrap>
-               <v-flex xs8 :class="{ invalid: $v.newOrganization.organization_name.$error }">
+               <!--<v-flex xs8 :class="{ invalid: $v.newOrganization.organization_name.$error }">-->
+               <v-flex xs8>
                   <v-text-field
                   label="Organization Name"
                   v-model="newOrganization.organization_name"
-                  @input="$v.newOrganization.organization_name.$touch()"
                   autofocus
                   hide-details
                   >
@@ -105,18 +105,18 @@
 //             this.successAlert = true;
 			},
 		},
-       validations: {
-			newOrganization: {
-			 organization_name: {
-			 	required: required
-          },
-			 organization_abbreviation: {},
-			 organization_website: {},
-			 contact_name: {},
-			 contact_phone: {},
-			 rm_state: {},
-         }
-       },
+//       validations: {
+//			newOrganization: {
+//			 organization_name: {
+//			 	required: required
+//          },
+//			 organization_abbreviation: {},
+//			 organization_website: {},
+//			 contact_name: {},
+//			 contact_phone: {},
+//			 rm_state: {},
+//         }
+//       },
        computed: {
 			disableSubmit() {
 				if (this.newOrganization.organization_name.length > 0) {
@@ -133,12 +133,12 @@
 </script>
 
 <style scoped>
-   .invalid label {
-      color: red;
-   }
-   .invalid input {
+   /*.invalid label {*/
+      /*color: red;*/
+   /*}*/
+   /*.invalid input {*/
       /*border: 1px solid red;*/
-      color: red;
+      /*color: red;*/
       /*background-color: #ffc9aa;*/
-   }
+   /*}*/
 </style>

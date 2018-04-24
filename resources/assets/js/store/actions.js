@@ -1,8 +1,10 @@
 import axios from 'axios'
 
+axios.defaults.baseURL = 'http://nyal-laravel-01.dv:85';
+
 export default {
 	getOrganizations({commit}) {
-		axios.get('http://nyal-laravel.dv:85/api/organizations')
+		axios.get('/api/organizations')
 			.then(response => {
 				console.log(response)
 				commit('getOrganizations', response.data)
@@ -20,7 +22,7 @@ export default {
 		}
 	},
 	createOrganization({commit}, newOrganization) {
-		axios.post('http://nyal-laravel.dv:85/api/organization', newOrganization)
+		axios.post('/api/organization', newOrganization)
 			.then(response => {
 				console.log(response);
 				commit('createOrganization', response.data)
@@ -29,7 +31,7 @@ export default {
 			.catch(error => console.log(error))
 	},
 	updateOrganization({commit}, updatedOrganization) {
-		axios.put('http://nyal-laravel.dv:85/api/organization', updatedOrganization)
+		axios.put('/api/organization', updatedOrganization)
 			.then(response => {
 				console.log(response.data)
 				commit('updateOrganization', response.data)
@@ -49,7 +51,7 @@ export default {
 			});
 	},
 	deleteOrganization({commit}, id) {
-		axios.delete('http://nyal-laravel.dv:85/api/organization/' + id)
+		axios.delete('/api/organization/' + id)
 			.then(response => {
 				// console.log(response.data)
 				commit('deleteOrganization', response.data.id)

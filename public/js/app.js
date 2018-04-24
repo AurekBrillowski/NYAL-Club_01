@@ -50797,18 +50797,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			//             this.successAlert = true;
 		}
 	},
-	validations: {
-		newOrganization: {
-			organization_name: {
-				required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"]
-			},
-			organization_abbreviation: {},
-			organization_website: {},
-			contact_name: {},
-			contact_phone: {},
-			rm_state: {}
-		}
-	},
+	//       validations: {
+	//			newOrganization: {
+	//			 organization_name: {
+	//			 	required: required
+	//          },
+	//			 organization_abbreviation: {},
+	//			 organization_website: {},
+	//			 contact_name: {},
+	//			 contact_phone: {},
+	//			 rm_state: {},
+	//         }
+	//       },
 	computed: {
 		disableSubmit: function disableSubmit() {
 			if (this.newOrganization.organization_name.length > 0) {
@@ -53592,11 +53592,13 @@ var index_esm = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
+__WEBPACK_IMPORTED_MODULE_0_axios___default.a.defaults.baseURL = 'http://nyal-laravel-01.dv:85';
+
 /* harmony default export */ __webpack_exports__["a"] = ({
 	getOrganizations: function getOrganizations(_ref) {
 		var commit = _ref.commit;
 
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://nyal-laravel.dv:85/api/organizations').then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/organizations').then(function (response) {
 			console.log(response);
 			commit('getOrganizations', response.data);
 			commit('selectFirstRow', response.data[0]);
@@ -53617,7 +53619,7 @@ var index_esm = {
 	createOrganization: function createOrganization(_ref3, newOrganization) {
 		var commit = _ref3.commit;
 
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://nyal-laravel.dv:85/api/organization', newOrganization).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/organization', newOrganization).then(function (response) {
 			console.log(response);
 			commit('createOrganization', response.data);
 			commit('resetState');
@@ -53628,7 +53630,7 @@ var index_esm = {
 	updateOrganization: function updateOrganization(_ref4, updatedOrganization) {
 		var commit = _ref4.commit;
 
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('http://nyal-laravel.dv:85/api/organization', updatedOrganization).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/api/organization', updatedOrganization).then(function (response) {
 			console.log(response.data);
 			commit('updateOrganization', response.data);
 			commit('resetState');
@@ -53648,7 +53650,7 @@ var index_esm = {
 	deleteOrganization: function deleteOrganization(_ref5, id) {
 		var commit = _ref5.commit;
 
-		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('http://nyal-laravel.dv:85/api/organization/' + id).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('/api/organization/' + id).then(function (response) {
 			// console.log(response.data)
 			commit('deleteOrganization', response.data.id);
 			commit('resetState');
@@ -72301,7 +72303,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.invalid label[data-v-2671b62d] {\n   color: red;\n}\n.invalid input[data-v-2671b62d] {\n   /*border: 1px solid red;*/\n   color: red;\n   /*background-color: #ffc9aa;*/\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.invalid label {*/\n   /*color: red;*/\n/*}*/\n/*.invalid input {*/\n   /*border: 1px solid red;*/\n   /*color: red;*/\n   /*background-color: #ffc9aa;*/\n/*}*/\n", ""]);
 
 // exports
 
@@ -72347,23 +72349,13 @@ var render = function() {
                 [
                   _c(
                     "v-flex",
-                    {
-                      class: {
-                        invalid: _vm.$v.newOrganization.organization_name.$error
-                      },
-                      attrs: { xs8: "" }
-                    },
+                    { attrs: { xs8: "" } },
                     [
                       _c("v-text-field", {
                         attrs: {
                           label: "Organization Name",
                           autofocus: "",
                           "hide-details": ""
-                        },
-                        on: {
-                          input: function($event) {
-                            _vm.$v.newOrganization.organization_name.$touch()
-                          }
                         },
                         model: {
                           value: _vm.newOrganization.organization_name,
