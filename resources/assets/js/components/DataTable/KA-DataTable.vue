@@ -24,28 +24,20 @@
 
 <script>
 	export default {
-		data() {
-			return {}
-		},
 		computed: {
 		  organizations() {
-				return this.$store.state.organizations;
+				return this.$store.getters.organizations;
 			},
 			selectedRow() {
-				return this.$store.state.selected;
+				return this.$store.state.organizations.selected;
 			},
 		},
        created() {
-//			this.$store.commit('selectFirstRow')
-			this.$store.dispatch('getOrganizations')
+			this.$store.dispatch('initOrganizations')
        },
-//	   mounted() {
-//		   this.$store.commit('selectFirstRow');
-//	   },
 		methods: {
 			selectRow(organization) {
 				this.$store.commit('selectRow', organization);
-//				this.deleteDialog = false;
 				console.log(organization);
 			},
 		}
