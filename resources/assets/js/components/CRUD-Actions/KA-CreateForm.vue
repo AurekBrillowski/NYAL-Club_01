@@ -76,7 +76,7 @@
             <v-btn color="red" @click="cancelCreate">
                Cancel
             </v-btn>
-            <v-btn color="green" @click="createOrganization" :disabled="disableSubmit">
+            <v-btn color="green" @click="createOrganization" :disabled="$v.$invalid">
                Submit
             </v-btn>
          </template>
@@ -86,7 +86,7 @@
 
 <script>
 	import KAForm from '../Base/KA-Form.vue'
-   import { required } from 'vuelidate/lib/validators'
+   import { required, maxLength, url } from 'vuelidate/lib/validators'
 	export default {
 		data() {
 			return {
@@ -116,21 +116,16 @@
 			   },
 			   organization_abbreviation: {},
 			   organization_website: {
-			   	required: required
+			   	required: required,
+               url: url
             },
 			   contact_name: {
 			   	required: required
             },
 			   contact_phone: {},
-			   rm_state: {},
 		   }
 	   },
        computed: {
-			disableSubmit() {
-				if (this.newOrganization.organization_name.length > 0) {
-					return false;
-            } else { return true; }
-         },
 	       states() { return this.$store.getters.abbrvStates; }
        },
 		components: {
