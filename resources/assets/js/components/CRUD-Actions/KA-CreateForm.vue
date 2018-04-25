@@ -101,7 +101,6 @@
 			},
 			createOrganization() {
 				this.$store.dispatch('createOrganization', this.newOrganization)
-//             this.successAlert = true;
 			},
 		},
        validations: {
