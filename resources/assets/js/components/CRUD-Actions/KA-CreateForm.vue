@@ -8,9 +8,11 @@
                   <v-text-field
                   label="Organization Name"
                   v-model="newOrganization.organization_name"
+                  @blur="$v.newOrganization.organization_name.$touch()"
+                  :error="$v.newOrganization.organization_name.$error"
                   autofocus
                   hide-details
-                  :class="{ invalid: $v.newOrganization.organization_name.$error }"
+                  required
                   >
                   </v-text-field>
                </v-flex>
@@ -39,6 +41,8 @@
                   <v-text-field
                   label="Organization Website"
                   v-model="newOrganization.organization_website"
+                  @blur="$v.newOrganization.organization_website.$touch()"
+                  :error="$v.newOrganization.organization_website.$error"
                   hide-details
                   >
                   </v-text-field>
@@ -49,6 +53,8 @@
                   <v-text-field
                   label="Contact Name"
                   v-model="newOrganization.contact_name"
+                  @blur="$v.newOrganization.contact_name.$touch()"
+                  :error="$v.newOrganization.contact_name.$error"
                   hide-details
                   >
                   </v-text-field>
@@ -104,25 +110,27 @@
 //             this.successAlert = true;
 			},
 		},
-       validations: {
-			newOrganization: {
-			 organization_name: {
-			 	required: required
-          },
-			 organization_abbreviation: {},
-			 organization_website: {},
-			 contact_name: {},
-			 contact_phone: {},
-			 rm_state: {},
-         }
-       },
+	   validations: {
+		   newOrganization: {
+			   organization_name: {
+				   required: required
+			   },
+			   organization_abbreviation: {},
+			   organization_website: {
+			   	required: required
+            },
+			   contact_name: {
+			   	required: required
+            },
+			   contact_phone: {},
+			   rm_state: {},
+		   }
+	   },
        computed: {
 			disableSubmit() {
 				if (this.newOrganization.organization_name.length > 0) {
 					return false;
-            } else {
-					return true;
-            }
+            } else { return true; }
          },
 	       states() { return this.$store.getters.abbrvStates; }
        },
@@ -131,14 +139,3 @@
 		}
 	}
 </script>
-
-<style scoped>
-   .invalid label {
-      color: red;
-   }
-   .invalid input {
-      border: 1px solid red;
-      color: red;
-      background-color: #ffc9aa;
-   }
-</style>
