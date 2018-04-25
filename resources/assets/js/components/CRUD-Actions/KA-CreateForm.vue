@@ -8,29 +8,25 @@
                   <v-text-field
                   label="Organization Name"
                   v-model="newOrganization.organization_name"
+                  @blur="$v.newOrganization.organization_name.$touch()"
+                  :error="$v.newOrganization.organization_name.$error"
+                  autofocus
                   hide-details
+                  required
                   >
                   </v-text-field>
                </v-flex>
                <v-flex xs4>
-                  <v-text-field
-                     label="State"
-                     v-model="newOrganization.rm_state"
-                     hide-details
+                  <v-select
+                  :items="states"
+                  label="State"
+                  v-model="newOrganization.rm_state"
+                  autocomplete
+                  dense
+                  hide-details
                   >
-                  </v-text-field>
+                  </v-select>
                </v-flex>
-               <!--<v-flex xs4>-->
-                  <!--<v-select-->
-                  <!--:items="states"-->
-                  <!--label="State"-->
-                  <!--v-model="newOrganization.rm_state"-->
-                  <!--autocomplete-->
-                  <!--dense-->
-                  <!--hide-details-->
-                  <!--&gt;-->
-                  <!--</v-select>-->
-               <!--</v-flex>-->
             </v-layout>
             <v-layout row wrap>
                <v-flex xs6>
@@ -45,6 +41,8 @@
                   <v-text-field
                   label="Organization Website"
                   v-model="newOrganization.organization_website"
+                  @blur="$v.newOrganization.organization_website.$touch()"
+                  :error="$v.newOrganization.organization_website.$error"
                   hide-details
                   >
                   </v-text-field>
@@ -55,6 +53,8 @@
                   <v-text-field
                   label="Contact Name"
                   v-model="newOrganization.contact_name"
+                  @blur="$v.newOrganization.contact_name.$touch()"
+                  :error="$v.newOrganization.contact_name.$error"
                   hide-details
                   >
                   </v-text-field>
@@ -62,11 +62,13 @@
                <v-flex xs6>
                   <v-text-field
                   label="Contact Phone"
+                  mask="(###) ###-####"
                   v-model="newOrganization.contact_phone"
                   hide-details
                   >
                   </v-text-field>
                </v-flex>
+               <pre> newOrganization: {{ $v.newOrganization }} </pre>
             </v-layout>
          </template>
          <template slot="form_actions">
@@ -74,7 +76,7 @@
             <v-btn color="red" @click="cancelCreate">
                Cancel
             </v-btn>
-            <v-btn color="green" @click="createOrganization">
+            <v-btn color="green" @click="createOrganization" :disabled="disableSubmit">
                Submit
             </v-btn>
          </template>
@@ -84,18 +86,19 @@
 
 <script>
 	import KAForm from '../Base/KA-Form.vue'
+   import { required } from 'vuelidate/lib/validators'
 	export default {
 		data() {
 			return {
 				newOrganization: {
-					organization_name: null,
-					organization_abbreviation: null,
-					organization_website: null,
-					contact_name: null,
-					contact_phone: null,
-               rm_state: null,
+					organization_name: '',
+					organization_abbreviation: '',
+					organization_website: '',
+					contact_name: '',
+					contact_phone: '',
+               rm_state: 'TX',
             },
-             successAlert: false
+             successAlert: false,
 			}
 		},
 		methods: {
@@ -103,16 +106,36 @@
 				this.$store.commit('cancelCreateAction')
 			},
 			createOrganization() {
-				this.$store.dispatch('createOrUpdateOrganization', this.newOrganization)
+				this.$store.dispatch('createOrganization', this.newOrganization)
 //             this.successAlert = true;
 			},
 		},
+	   validations: {
+		   newOrganization: {
+			   organization_name: {
+				   required: required
+			   },
+			   organization_abbreviation: {},
+			   organization_website: {
+			   	required: required
+            },
+			   contact_name: {
+			   	required: required
+            },
+			   contact_phone: {},
+			   rm_state: {},
+		   }
+	   },
+       computed: {
+			disableSubmit() {
+				if (this.newOrganization.organization_name.length > 0) {
+					return false;
+            } else { return true; }
+         },
+	       states() { return this.$store.getters.abbrvStates; }
+       },
 		components: {
 			'ka-form': KAForm
 		}
 	}
 </script>
-
-<style>
-
-</style>

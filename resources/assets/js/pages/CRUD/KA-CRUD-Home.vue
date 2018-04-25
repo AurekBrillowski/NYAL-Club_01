@@ -26,10 +26,10 @@
 		},
        computed: {
 			createAction() {
-			 return this.$store.state.crudActions.create
+			 return this.$store.state.organizations.crudActions.create
 		 },
 			editAction() {
-				return this.$store.state.crudActions.edit
+				return this.$store.state.organizations.crudActions.edit
          },
        },
 		components: {

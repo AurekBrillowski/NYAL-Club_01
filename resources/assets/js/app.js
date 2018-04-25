@@ -14,9 +14,15 @@ import Vue from 'vue'
 import router from './router/index'
 import store from './store/index'
 import Vuetify from 'vuetify'
-// import 'vuetify/dist/vuetify.min.css'
+import Vuelidate from 'vuelidate'
+
+import axios from 'axios'
+
+axios.defaults.baseURL = 'http://nyal-laravel-01.dv:85';
+
 
 Vue.use(Vuetify)
+Vue.use(Vuelidate)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
