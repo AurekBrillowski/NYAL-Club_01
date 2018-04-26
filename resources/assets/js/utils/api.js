@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
 	organizations(endpoint) {
 		return {

@@ -53,7 +53,7 @@
 					icon: 'home',
 					title: 'KA - Home'
 				}],
-				title: 'Vuetify CRUD Application'
+				title: 'National Youth Athletics League Events'
 			}
 		},
 	}

@@ -1,17 +1,28 @@
 <template>
-   <v-slide-y-transition mode="out-in">
-      <v-container fluid grid-list-xl>
-         <v-layout row justify-center>
-            <ka-create-action></ka-create-action>
-            <ka-delete-action></ka-delete-action>
-         </v-layout>
-         <v-layout justify-center>
-            <ka-data-table></ka-data-table>
-            <ka-create-form v-if="createAction"></ka-create-form>
-            <ka-update-form v-if="editAction"></ka-update-form>
-         </v-layout>
-      </v-container>
-   </v-slide-y-transition>
+   <!--<v-slide-y-transition mode="out-in">-->
+   <v-container fluid grid-list-xl>
+      <v-expansion-panel>
+         <v-expansion-panel-content class="blue" hide-actions>
+            <div slot="header" class="headline text-md-center">Event Organizations</div>
+            <v-card>
+               <v-card-text>
+                  This is some example text.
+               </v-card-text>
+            </v-card>
+         </v-expansion-panel-content>
+      </v-expansion-panel>
+      <!--<v-container fluid grid-list-xl>-->
+      <v-layout row justify-center>
+         <ka-create-action></ka-create-action>
+         <ka-delete-action></ka-delete-action>
+      </v-layout>
+      <v-layout justify-center>
+         <ka-data-table></ka-data-table>
+         <ka-create-form v-if="createAction"></ka-create-form>
+         <ka-update-form v-if="editAction"></ka-update-form>
+      </v-layout>
+   </v-container>
+   <!--</v-slide-y-transition>-->
 </template>
 
 <script>
@@ -24,14 +35,14 @@
 		data() {
 			return {}
 		},
-       computed: {
+		computed: {
 			createAction() {
-			 return this.$store.state.organizations.crudActions.create
-		 },
+				return this.$store.state.organizations.crudActions.create
+			},
 			editAction() {
 				return this.$store.state.organizations.crudActions.edit
-         },
-       },
+			},
+		},
 		components: {
 			'ka-create-form': KA_CreateForm,
 			'ka-update-form': KA_UpdateForm,

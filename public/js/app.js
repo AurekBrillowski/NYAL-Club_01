@@ -11852,6 +11852,12 @@ module.exports = Vue;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(25);
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
@@ -11953,7 +11959,7 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14482,7 +14488,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(5)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -24853,12 +24859,6 @@ return jQuery;
 
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(25);
-
-/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25461,7 +25461,7 @@ function withParams(paramsOrClosure, maybeValidator) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(20);
-module.exports = __webpack_require__(109);
+module.exports = __webpack_require__(110);
 
 
 /***/ }),
@@ -25476,11 +25476,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router_index__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_index__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuetify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuelidate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vuelidate__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_axios__);
 
 /**
@@ -25515,7 +25515,7 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_5_vuel
 // import KA_Home from './pages/KA-Home.vue'
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('ka-home', __webpack_require__(106));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('ka-home', __webpack_require__(107));
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   el: '#app',
@@ -25529,7 +25529,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
 
 
 window._ = __webpack_require__(22);
-window.Popper = __webpack_require__(8).default;
+window.Popper = __webpack_require__(9).default;
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -25538,7 +25538,7 @@ window.Popper = __webpack_require__(8).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(9);
+  window.$ = window.jQuery = __webpack_require__(10);
 
   __webpack_require__(24);
 } catch (e) {}
@@ -25549,7 +25549,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(10);
+window.axios = __webpack_require__(7);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -42727,7 +42727,7 @@ module.exports = function(module) {
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-   true ? factory(exports, __webpack_require__(9), __webpack_require__(8)) :
+   true ? factory(exports, __webpack_require__(10), __webpack_require__(9)) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (factory((global.bootstrap = {}),global.jQuery,global.Popper));
 }(this, (function (exports,$,Popper) { 'use strict';
@@ -46658,7 +46658,7 @@ module.exports = function(module) {
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(11);
 var Axios = __webpack_require__(27);
-var defaults = __webpack_require__(7);
+var defaults = __webpack_require__(8);
 
 /**
  * Create an instance of Axios
@@ -46741,7 +46741,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(7);
+var defaults = __webpack_require__(8);
 var utils = __webpack_require__(1);
 var InterceptorManager = __webpack_require__(36);
 var dispatchRequest = __webpack_require__(37);
@@ -47280,7 +47280,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(1);
 var transformData = __webpack_require__(38);
 var isCancel = __webpack_require__(15);
-var defaults = __webpack_require__(7);
+var defaults = __webpack_require__(8);
 var isAbsoluteURL = __webpack_require__(39);
 var combineURLs = __webpack_require__(40);
 
@@ -50534,7 +50534,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50588,6 +50588,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CRUD_Actions_KA_CreateAction_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_CRUD_Actions_KA_CreateAction_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_CRUD_Actions_KA_DeleteAction_vue__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_CRUD_Actions_KA_DeleteAction_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_CRUD_Actions_KA_DeleteAction_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -52789,32 +52800,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-slide-y-transition",
-    { attrs: { mode: "out-in" } },
+    "v-container",
+    { attrs: { fluid: "", "grid-list-xl": "" } },
     [
       _c(
-        "v-container",
-        { attrs: { fluid: "", "grid-list-xl": "" } },
+        "v-expansion-panel",
         [
           _c(
-            "v-layout",
-            { attrs: { row: "", "justify-center": "" } },
-            [_c("ka-create-action"), _vm._v(" "), _c("ka-delete-action")],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-layout",
-            { attrs: { "justify-center": "" } },
+            "v-expansion-panel-content",
+            { staticClass: "blue", attrs: { "hide-actions": "" } },
             [
-              _c("ka-data-table"),
+              _c(
+                "div",
+                {
+                  staticClass: "headline text-md-center",
+                  attrs: { slot: "header" },
+                  slot: "header"
+                },
+                [_vm._v("Event Organizations")]
+              ),
               _vm._v(" "),
-              _vm.createAction ? _c("ka-create-form") : _vm._e(),
-              _vm._v(" "),
-              _vm.editAction ? _c("ka-update-form") : _vm._e()
+              _c(
+                "v-card",
+                [
+                  _c("v-card-text", [
+                    _vm._v(
+                      "\n               This is some example text.\n            "
+                    )
+                  ])
+                ],
+                1
+              )
             ],
             1
           )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-layout",
+        { attrs: { row: "", "justify-center": "" } },
+        [_c("ka-create-action"), _vm._v(" "), _c("ka-delete-action")],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "v-layout",
+        { attrs: { "justify-center": "" } },
+        [
+          _c("ka-data-table"),
+          _vm._v(" "),
+          _vm.createAction ? _c("ka-create-form") : _vm._e(),
+          _vm._v(" "),
+          _vm.editAction ? _c("ka-update-form") : _vm._e()
         ],
         1
       )
@@ -53813,6 +53852,9 @@ var index_esm = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_api__ = __webpack_require__(103);
+
+
 var state = {
 	organizations: [],
 	selected: {},
@@ -53827,9 +53869,7 @@ var getters = {
 };
 var mutations = {
 	selectFirstRow: function selectFirstRow(state, payload) {
-		state.selected = payload;
-		state.deleteDialog = false;
-		state.crudActions.create = false;
+		state.selected = payload;state.deleteDialog = false;state.crudActions.create = false;
 	},
 	selectRow: function selectRow(state, payload) {
 		state.selected = payload;state.deleteDialog = false;
@@ -53887,7 +53927,9 @@ var actions = {
 	initOrganizations: function initOrganizations(_ref) {
 		var commit = _ref.commit;
 
-		axios.get('/api/organizations').then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0__utils_api__["a" /* default */].organizations('/api/organizations').getAll()
+		// axios.get('/api/organizations')
+		.then(function (response) {
 			console.log(response);
 			commit('initOrganizations', response.data);
 			commit('selectFirstRow', response.data[0]);
@@ -53898,7 +53940,9 @@ var actions = {
 	createOrganization: function createOrganization(_ref2, newOrganization) {
 		var commit = _ref2.commit;
 
-		axios.post('/api/organization', newOrganization).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0__utils_api__["a" /* default */].organizations('/api/organization').create(newOrganization)
+		// axios.post('/api/organization', newOrganization)
+		.then(function (response) {
 			commit('createOrganization', response.data);
 			commit('resetState');
 		}).catch(function (error) {
@@ -53908,7 +53952,9 @@ var actions = {
 	updateOrganization: function updateOrganization(_ref3, updatedOrganization) {
 		var commit = _ref3.commit;
 
-		axios.put('/api/organization', updatedOrganization).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0__utils_api__["a" /* default */].organizations('/api/organization').update(updatedOrganization)
+		// axios.put('/api/organization', updatedOrganization)
+		.then(function (response) {
 			commit('updateOrganization', response.data);
 			commit('resetState');
 		}).catch(function (error) {
@@ -53919,7 +53965,9 @@ var actions = {
 	deleteOrganization: function deleteOrganization(_ref4, id) {
 		var commit = _ref4.commit;
 
-		axios.delete('/api/organization/' + id).then(function (response) {
+		__WEBPACK_IMPORTED_MODULE_0__utils_api__["a" /* default */].organizations('/api/organization').delete(id)
+		// axios.delete('/api/organization/' + id)
+		.then(function (response) {
 			commit('deleteOrganization', response.data.id);
 			commit('resetState');
 		}).catch(function (error) {
@@ -53937,6 +53985,39 @@ var actions = {
 
 /***/ }),
 /* 103 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+	organizations: function organizations(endpoint) {
+		return {
+			getAll: function getAll() {
+				return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(endpoint);
+			},
+			getOne: function getOne(_ref) {
+				var id = _ref.id;
+				return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(endpoint + '/' + id);
+			},
+			update: function update(toUpdate) {
+				return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put(endpoint, toUpdate);
+			},
+			create: function create(toCreate) {
+				return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(endpoint, toCreate);
+			},
+			delete: function _delete(_ref2) {
+				var id = _ref2.id;
+				return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete(endpoint + '/' + id);
+			}
+		};
+	}
+});
+
+/***/ }),
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -71605,7 +71686,7 @@ function install(Vue) {
 //# sourceMappingURL=vuetify.js.map
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71618,7 +71699,7 @@ exports.withParams = exports.validationMixin = exports.Vuelidate = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _vval = __webpack_require__(105);
+var _vval = __webpack_require__(106);
 
 var _params = __webpack_require__(18);
 
@@ -72150,7 +72231,7 @@ exports.withParams = _params.withParams;
 exports.default = Vuelidate;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72305,15 +72386,15 @@ function h(tag, key, args) {
 }
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(107)
+var __vue_script__ = __webpack_require__(108)
 /* template */
-var __vue_template__ = __webpack_require__(108)
+var __vue_template__ = __webpack_require__(109)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72352,7 +72433,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72412,13 +72493,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				icon: 'home',
 				title: 'KA - Home'
 			}],
-			title: 'Vuetify CRUD Application'
+			title: 'National Youth Athletics League Events'
 		};
 	}
 });
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72534,7 +72615,7 @@ if (false) {
 }
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
