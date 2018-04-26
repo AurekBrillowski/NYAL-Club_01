@@ -25,12 +25,12 @@
 		},
 		computed: {
 			deleteDialog() {
-				return this.$store.state.organizations.deleteDialog;
+				return this.$store.state.eventOrganizations.deleteDialog;
 			},
 		},
 		methods: {
 			deleteOrganization() {
-				this.$store.dispatch('deleteOrganization', this.$store.state.organizations.selected.id)
+				this.$store.dispatch('deleteOrganization', this.$store.state.eventOrganizations.selected.id)
 				this.dialog = false
 			}
 		}

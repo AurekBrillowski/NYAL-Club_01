@@ -74,12 +74,12 @@
 </template>
 
 <script>
-	import KAForm from '../Base/KA-Form.vue'
+	import KAForm from '../../../Base/KA-Form.vue'
 	export default {
 		computed: {
 			organizationName: {
 				get() {
-					return this.$store.state.organizations.selected.organization_name
+					return this.$store.state.eventOrganizations.selected.organization_name
 				},
 				set(value) {
 					this.$store.commit('updateOrganizationName', value)
@@ -87,7 +87,7 @@
 			},
 			organizationAbbrv: {
 				get() {
-					return this.$store.state.organizations.selected.organization_abbreviation
+					return this.$store.state.eventOrganizations.selected.organization_abbreviation
 				},
 				set(value) {
 					this.$store.commit('updateOrganizationAbbrv', value)
@@ -95,7 +95,7 @@
 			},
 			organizationWebsite: {
 				get() {
-					return this.$store.state.organizations.selected.organization_website
+					return this.$store.state.eventOrganizations.selected.organization_website
 				},
 				set(value) {
 					this.$store.commit('updateOrganizationWebsite', value)
@@ -103,7 +103,7 @@
 			},
 			contactName: {
 				get() {
-					return this.$store.state.organizations.selected.contact_name
+					return this.$store.state.eventOrganizations.selected.contact_name
 				},
 				set(value) {
 					this.$store.commit('updateContactName', value)
@@ -111,7 +111,7 @@
 			},
 			contactPhone: {
 				get() {
-					return this.$store.state.organizations.selected.contact_phone
+					return this.$store.state.eventOrganizations.selected.contact_phone
 				},
 				set(value) {
 					this.$store.commit('updateContactPhone', value)
@@ -119,7 +119,7 @@
 			},
 			rmState: {
 				get() {
-					return this.$store.state.organizations.selected.rm_state
+					return this.$store.state.eventOrganizations.selected.rm_state
 				},
 				set(value) {
 					this.$store.commit('updateRMState', value)
@@ -129,7 +129,7 @@
 		},
 		methods: {
 			updateOrganization() {
-				var updatedSelectedRow = this.$store.state.organizations.selected;
+				var updatedSelectedRow = this.$store.state.eventOrganizations.selected;
 				this.$store.dispatch('updateOrganization', updatedSelectedRow)
 			}
 		},

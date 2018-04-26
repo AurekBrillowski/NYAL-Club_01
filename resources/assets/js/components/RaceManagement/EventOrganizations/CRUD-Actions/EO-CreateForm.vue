@@ -85,7 +85,7 @@
 </template>
 
 <script>
-	import KAForm from '../Base/KA-Form.vue'
+	import KAForm from '../../../Base/KA-Form.vue'
    import { required, maxLength, url } from 'vuelidate/lib/validators'
 	export default {
 		data() {

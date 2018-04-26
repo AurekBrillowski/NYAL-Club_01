@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import organizations from './modules/organizations'
+import eventOrganizations from './modules/RaceManagement/eventOrganizations'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -14,6 +14,6 @@ export default new Vuex.Store({
 	},
 	// mutations: {},
 	modules: {
-		organizations,
+		eventOrganizations,
 	}
 });

@@ -1,31 +1,36 @@
 <template>
    <v-app dark>
       <v-navigation-drawer
-      persistent
-      :clipped="clipped"
-      v-model="drawer"
-      enable-resize-watcher
-      fixed
-      app
+         persistent
+         :clipped="clipped"
+         v-model="drawer"
+         fixed
+         app
       >
-         <v-list>
-            <v-list-tile
-            value="true"
-            v-for="(item, i) in items"
-            :key="i"
-            >
-               <v-list-tile-action>
-                  <v-icon v-html="item.icon"></v-icon>
-               </v-list-tile-action>
+         <v-list dense>
+            <v-list-tile>
                <v-list-tile-content>
-                  <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                  <v-list-tile-title class="title">Admin Name</v-list-tile-title>
                </v-list-tile-content>
             </v-list-tile>
          </v-list>
+         <v-divider></v-divider>
+         <v-list dense>
+            <template v-for="item in items">
+               <v-list-tile :href="item.href" :to="item.href">
+                  <v-list-tile-action>
+                     <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                     {{ item.title }}
+                  </v-list-tile-content>
+               </v-list-tile>
+            </template>
+         </v-list>
       </v-navigation-drawer>
       <v-toolbar
-      app
-      :clipped-left="clipped"
+         app
+         :clipped-left="clipped"
       >
          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
          <v-toolbar-title v-text="title"></v-toolbar-title>
@@ -49,11 +54,11 @@
 				clipped: false,
 				drawer: false,
 				fixed: false,
-				items: [{
-					icon: 'home',
-					title: 'KA - Home'
-				}],
-				title: 'National Youth Athletics League Events'
+				items: [
+//				   {title: 'Home', href: '/', icon: 'home', router: true},
+				   {title: 'Race Management', href: '/', icon: 'directions_run', router: true},
+            ],
+				title: 'National Youth Athletics League - Admin'
 			}
 		},
 	}
