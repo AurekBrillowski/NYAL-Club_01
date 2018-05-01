@@ -13,8 +13,8 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'NYAL-Original_Source'),
-    'default' => env('DB_CONNECTION', 'NYAL-Development'),
+    // 'default' => env('DB_CONNECTION', 'NYAL-Development'),
+    'default' => env('DB_CONNECTION', 'NYAL-Testing'),
     // 'default' => env('DB_CONNECTION', 'NYAL-Production'),
 
     /*
@@ -56,12 +56,12 @@ return [
             'engine' => null,
         ],
 
-        'NYAL-Original_Source' => [
+        'NYAL-Development' => [
             'driver' => 'mysql',
             'host' => env('DB1_HOST', '127.0.0.1'),
             'port' => env('DB1_PORT', '3306'),
-            'database' => env('DB1_DATABASE', 'forge'),
-            'username' => env('DB1_USERNAME', 'forge'),
+            'database' => env('DB1_DATABASE', ''),
+            'username' => env('DB1_USERNAME', ''),
             'password' => env('DB1_PASSWORD', ''),
             'unix_socket' => env('DB1_SOCKET', ''),
             'charset' => 'utf8mb4',
@@ -71,12 +71,12 @@ return [
             'engine' => null,
         ],
 
-        'NYAL-Development' => [
+        'NYAL-Testing' => [
             'driver' => 'mysql',
             'host' => env('DB2_HOST', '127.0.0.1'),
             'port' => env('DB2_PORT', '3306'),
-            'database' => env('DB2_DATABASE', 'forge'),
-            'username' => env('DB2_USERNAME', 'forge'),
+            'database' => env('DB2_DATABASE', ''),
+            'username' => env('DB2_USERNAME', ''),
             'password' => env('DB2_PASSWORD', ''),
             'unix_socket' => env('DB2_SOCKET', ''),
             'charset' => 'utf8mb4',
@@ -90,8 +90,8 @@ return [
             'driver' => 'mysql',
             'host' => env('DB3_HOST', '127.0.0.1'),
             'port' => env('DB3_PORT', '3306'),
-            'database' => env('DB3_DATABASE', 'forge'),
-            'username' => env('DB3_USERNAME', 'forge'),
+            'database' => env('DB3_DATABASE', ''),
+            'username' => env('DB3_USERNAME', ''),
             'password' => env('DB3_PASSWORD', ''),
             'unix_socket' => env('DB3_SOCKET', ''),
             'charset' => 'utf8mb4',
