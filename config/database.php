@@ -13,8 +13,9 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'NYAL_SOURCE'),
-    'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => env('DB_CONNECTION', 'NYAL-Development'),
+    'default' => env('DB_CONNECTION', 'NYAL-Testing'),
+    // 'default' => env('DB_CONNECTION', 'NYAL-Production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,14 +56,44 @@ return [
             'engine' => null,
         ],
 
-        'NYAL_SOURCE' => [
+        'NYAL-Development' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'unix_socket' => env('DB_SOCKET', ''),
+            'host' => env('DB1_HOST', '127.0.0.1'),
+            'port' => env('DB1_PORT', '3306'),
+            'database' => env('DB1_DATABASE', ''),
+            'username' => env('DB1_USERNAME', ''),
+            'password' => env('DB1_PASSWORD', ''),
+            'unix_socket' => env('DB1_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'NYAL-Testing' => [
+            'driver' => 'mysql',
+            'host' => env('DB2_HOST', '127.0.0.1'),
+            'port' => env('DB2_PORT', '3306'),
+            'database' => env('DB2_DATABASE', ''),
+            'username' => env('DB2_USERNAME', ''),
+            'password' => env('DB2_PASSWORD', ''),
+            'unix_socket' => env('DB2_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'NYAL-Production' => [
+            'driver' => 'mysql',
+            'host' => env('DB3_HOST', '127.0.0.1'),
+            'port' => env('DB3_PORT', '3306'),
+            'database' => env('DB3_DATABASE', ''),
+            'username' => env('DB3_USERNAME', ''),
+            'password' => env('DB3_PASSWORD', ''),
+            'unix_socket' => env('DB3_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',

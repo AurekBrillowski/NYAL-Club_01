@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ClientInvoice extends Model
+class EventContact extends Model
 {
-    protected $table = 'Client_Invoice';
     //
 }

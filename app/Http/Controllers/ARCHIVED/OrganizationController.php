@@ -16,7 +16,7 @@ class OrganizationController extends Controller
     // @param myParam 
     public function index()
     {
-        return Organization::all();
+        return Event_Organization::all();
     }
 
     // ====================================================

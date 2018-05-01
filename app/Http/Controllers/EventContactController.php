@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Event_Contact;
 use Illuminate\Http\Request;
 
-class MyController extends Controller
+class EventContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +41,10 @@ class MyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Event_Contact  $event_Contact
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event_Contact $event_Contact)
     {
         //
     }
@@ -51,10 +52,10 @@ class MyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Event_Contact  $event_Contact
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event_Contact $event_Contact)
     {
         //
     }
@@ -63,10 +64,10 @@ class MyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Event_Contact  $event_Contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event_Contact $event_Contact)
     {
         //
     }
@@ -74,10 +75,10 @@ class MyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Event_Contact  $event_Contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Event_Contact $event_Contact)
     {
         //
     }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\USATF_Association;
 use Illuminate\Http\Request;
 
-class YourController extends Controller
+class USATFAssociationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +41,10 @@ class YourController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\USATF_Association  $uSATF_Association
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(USATF_Association $uSATF_Association)
     {
         //
     }
@@ -51,10 +52,10 @@ class YourController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\USATF_Association  $uSATF_Association
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(USATF_Association $uSATF_Association)
     {
         //
     }
@@ -63,10 +64,10 @@ class YourController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\USATF_Association  $uSATF_Association
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, USATF_Association $uSATF_Association)
     {
         //
     }
@@ -74,10 +75,10 @@ class YourController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\USATF_Association  $uSATF_Association
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(USATF_Association $uSATF_Association)
     {
         //
     }
