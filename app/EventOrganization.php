@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventOrganization extends Model
 {
-    protected $table = 'Event_Organization';
+    protected $table = 'Event_Organizations';
 }

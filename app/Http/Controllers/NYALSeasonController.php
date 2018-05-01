@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\NYAL_Season;
 use Illuminate\Http\Request;
 
-class PlainR extends Controller
+class NYALSeasonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +41,10 @@ class PlainR extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\NYAL_Season  $nYAL_Season
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(NYAL_Season $nYAL_Season)
     {
         //
     }
@@ -51,10 +52,10 @@ class PlainR extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\NYAL_Season  $nYAL_Season
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(NYAL_Season $nYAL_Season)
     {
         //
     }
@@ -63,10 +64,10 @@ class PlainR extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\NYAL_Season  $nYAL_Season
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, NYAL_Season $nYAL_Season)
     {
         //
     }
@@ -74,10 +75,10 @@ class PlainR extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\NYAL_Season  $nYAL_Season
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(NYAL_Season $nYAL_Season)
     {
         //
     }

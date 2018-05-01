@@ -17,17 +17,42 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
+/* -------------------------------------------------------------------------- */
+// List Event Organizations
+Route::get('event_organizations', 'EventOrganizationController@index');
+
+// List single Event Organization
+Route::get('event_organization/{id}', 'EventOrganizationController@show');
+
+// Delete Event Organization
+Route::delete('event_organization/{id}', 'EventOrganizationController@destroy');
+
+// Create new Event Organization
+Route::post('event_organization', 'EventOrganizationController@store');
+
+// Update Event Organization
+Route::put('event_organization', 'EventOrganizationController@store');
+
+/* -------------------------------------------------------------------------- */
+
+
+
+
+Route::get('athletes', 'AthleteController@index');
+
 // List organizations
-Route::get('organizations', 'OrganizationController@index');
+Route::get('eventnames', 'EventNameController@index');
 
 // List single organization
-Route::get('organizations/{id}', 'OrganizationController@show');
+Route::get('eventname/{id}', 'EventNameController@show');
 
 // Create new organization
-Route::post('organization', 'OrganizationController@store');
+Route::post('eventname', 'EventNameController@store');
 
 // Update organization
-Route::put('organization', 'OrganizationController@store');
+Route::put('eventname', 'EventNameController@store');
 
 // Delete organization
-Route::delete('organization/{id}', 'OrganizationController@destroy');
+Route::delete('eventname/{id}', 'EventNameController@destroy');
