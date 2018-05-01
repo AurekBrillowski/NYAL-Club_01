@@ -16,7 +16,8 @@
                <create-action :triggerCreate="triggerCreateAction"></create-action>
             </v-flex>
             <v-flex xs1>
-               <delete-action>Are you sure you want to delete this Organization?</delete-action>
+               <v-btn color="red" @click.native.stop="showDeleteDialog = true">Delete</v-btn>
+               <delete-action :dialog="showDeleteDialog" @close="showDeleteDialog = false">Are you sure you want to delete this Organization?</delete-action>
             </v-flex>
          </v-layout>
          <v-layout justify-center>
@@ -36,7 +37,9 @@
 	import EO_DataTable from './DataTable/EO-DataTable.vue'
 	export default {
 		data() {
-			return {}
+			return {
+				showDeleteDialog: false
+         }
 		},
        methods: {
 	       triggerCreateAction() {

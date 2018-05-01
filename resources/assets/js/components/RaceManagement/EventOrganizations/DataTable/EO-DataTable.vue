@@ -1,10 +1,5 @@
 <template>
    <v-flex xs12 sm5 md7>
-      <v-card color="transparent">
-         <v-card-title>
-            <v-spacer></v-spacer>
-         </v-card-title>
-      </v-card>
       <table>
          <tr>
             <th class="header_1">Name</th>

@@ -12,8 +12,8 @@
             </v-expansion-panel-content>
          </v-expansion-panel>
          <v-layout row justify-center>
-            <ec-create-action></ec-create-action>
-            <ec-delete-action></ec-delete-action>
+            <!--<ec-create-action></ec-create-action>-->
+            <!--<ec-delete-action></ec-delete-action>-->
          </v-layout>
          <v-layout justify-center>
             <ec-data-table></ec-data-table>
@@ -27,16 +27,16 @@
 <script>
 //	import EC_CreateForm from './CRUD-Actions/EC-CreateForm.vue'
 	import EC_UpdateForm from './CRUD-Actions/EC-UpdateForm.vue'
-	import EC_CreateAction from './CRUD-Actions/EC-CreateAction.vue'
-	import EC_DeleteAction from './CRUD-Actions/EC-DeleteAction.vue'
+//	import EC_CreateAction from './CRUD-Actions/EC-CreateAction.vue'
+//	import EC_DeleteAction from './CRUD-Actions/EC-DeleteAction.vue'
 	import EC_DataTable from './DataTable/EC-DataTable.vue'
 	export default {
 		components: {
 //		  'ec-create-form': EC_CreateForm,
 		  'ec-update-form': EC_UpdateForm,
 		  'ec-data-table': EC_DataTable,
-		  'ec-create-action': EC_CreateAction,
-		  'ec-delete-action': EC_DeleteAction,
+//		  'ec-create-action': EC_CreateAction,
+//		  'ec-delete-action': EC_DeleteAction,
       }
    }
 </script>
