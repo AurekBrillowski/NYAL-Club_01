@@ -68,7 +68,7 @@
                   >
                   </v-text-field>
                </v-flex>
-               <pre> newOrganization: {{ $v.newOrganization }} </pre>
+               <!--<pre> newOrganization: {{ $v.newOrganization }} </pre>-->
             </v-layout>
          </template>
          <template slot="form_actions">

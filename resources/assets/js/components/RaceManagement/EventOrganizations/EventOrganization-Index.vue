@@ -12,8 +12,12 @@
             </v-expansion-panel-content>
          </v-expansion-panel>
          <v-layout row justify-center>
-            <eo-create-action></eo-create-action>
-            <eo-delete-action></eo-delete-action>
+            <v-flex xs1>
+               <create-action :triggerCreate="triggerCreateAction"></create-action>
+            </v-flex>
+            <v-flex xs1>
+               <delete-action>Are you sure you want to delete this Organization?</delete-action>
+            </v-flex>
          </v-layout>
          <v-layout justify-center>
             <eo-data-table></eo-data-table>
@@ -27,13 +31,18 @@
 <script>
 	import EO_CreateForm from './CRUD-Actions/EO-CreateForm.vue'
 	import EO_UpdateForm from './CRUD-Actions/EO-UpdateForm.vue'
-   import EO_CreateAction from './CRUD-Actions/EO-CreateAction.vue'
-   import EO_DeleteAction from './CRUD-Actions/EO-DeleteAction.vue'
+   import DeleteAction from '../Shared/DeleteAction.vue'
+   import CreateAction from '../Shared/CreateAction.vue'
 	import EO_DataTable from './DataTable/EO-DataTable.vue'
 	export default {
 		data() {
 			return {}
 		},
+       methods: {
+	       triggerCreateAction() {
+		       this.$store.commit('triggerCreateAction')
+	       },
+       },
 		computed: {
 			createAction() {
 				return this.$store.state.eventOrganizations.crudActions.create
@@ -46,12 +55,8 @@
 			'eo-create-form': EO_CreateForm,
 			'eo-update-form': EO_UpdateForm,
 			'eo-data-table': EO_DataTable,
-			'eo-create-action': EO_CreateAction,
-			'eo-delete-action': EO_DeleteAction,
+			'delete-action': DeleteAction,
+			'create-action': CreateAction,
 		},
 	}
 </script>
-
-<style>
-
-</style>
