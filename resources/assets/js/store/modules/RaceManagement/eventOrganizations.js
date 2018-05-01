@@ -1,3 +1,5 @@
+import api from '../../../utils/api'
+
 const state = {
 	organizations: [],
 	selected: {},
@@ -9,11 +11,7 @@ const getters = {
 	organizations: state => { return state.organizations; },
 };
 const mutations = {
-	selectFirstRow(state, payload) {
-		state.selected = payload;
-		state.deleteDialog = false;
-		state.crudActions.create = false;
-	},
+	selectFirstRow(state, payload) { state.selected = payload; state.deleteDialog = false; state.crudActions.create = false; },
 	selectRow(state, payload) { state.selected = payload; state.deleteDialog = false },
 	initOrganizations(state, payload) { state.organizations = payload; },
 	triggerCreateAction(state) { state.crudActions.create = true; state.crudActions.edit = false; },
@@ -42,7 +40,8 @@ const mutations = {
 };
 const actions = {
 	initOrganizations: ({commit}) => {
-		axios.get('/api/organizations')
+		api.eventOrganizations('/api/organizations').getAll()
+		// axios.get('/api/organizations')
 			.then(response => {
 				console.log(response)
 				commit('initOrganizations', response.data)
@@ -53,7 +52,8 @@ const actions = {
 			})
 	},
 	createOrganization: ({commit}, newOrganization) => {
-		axios.post('/api/organization', newOrganization)
+		api.eventOrganizations('/api/organization').create(newOrganization)
+		// axios.post('/api/organization', newOrganization)
 			.then(response => {
 				commit('createOrganization', response.data)
 				commit('resetState')
@@ -61,7 +61,8 @@ const actions = {
 			.catch(error => console.log(error))
 	},
 	updateOrganization({commit}, updatedOrganization) {
-		axios.put('/api/organization', updatedOrganization)
+		api.eventOrganizations('/api/organization').update(updatedOrganization)
+		// axios.put('/api/organization', updatedOrganization)
 			.then(response => {
 				commit('updateOrganization', response.data)
 				commit('resetState')
@@ -69,7 +70,8 @@ const actions = {
 			.catch(error => console.log(error))
 	},
 	deleteOrganization: ({commit}, id) => {
-		axios.delete('/api/organization/' + id)
+		api.eventOrganizations('/api/organization').delete(id)
+		// axios.delete('/api/organization/' + id)
 			.then(response => {
 				commit('deleteOrganization', response.data.id)
 				commit('resetState')

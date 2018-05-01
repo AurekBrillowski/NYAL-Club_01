@@ -31,7 +31,6 @@ Vue.use(Vuelidate)
  */
 // import KA_Home from './pages/KA-Home.vue'
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('ka-home', require('./pages/KA-Home.vue'));
 
 const app = new Vue({

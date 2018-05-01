@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import KA_CRUD_Home from '../pages/CRUD/KA-CRUD-Home.vue'
+import NYAL_RaceManagement from '../pages/RaceManagement/NYAL-RaceManagement.vue'
 
 Vue.use(Router)
 
@@ -8,9 +8,10 @@ export default new Router({
 	mode: 'history',
 	routes: [
 		{
+			// path: '/race-management',
 			path: '/',
-			name: 'KA-CRUD-Home',
-			component: KA_CRUD_Home
+			name: 'race-management',
+			component: NYAL_RaceManagement
 		}
 	]
 })
