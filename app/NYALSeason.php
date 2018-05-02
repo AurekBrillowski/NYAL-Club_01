@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class YourTable extends Model
+class NYALSeason extends Model
 {
     //
 }

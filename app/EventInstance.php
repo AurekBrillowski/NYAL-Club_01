@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DrumStick extends Model
+class EventInstance extends Model
 {
-    protected $table = 'Drum_Sticks';
     //
 }
