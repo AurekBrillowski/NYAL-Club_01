@@ -17,42 +17,48 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
-/* -------------------------------------------------------------------------- */
-// List Event Organizations
-Route::get('event_organizations', 'EventOrganizationController@index');
-
-// List single Event Organization
-Route::get('event_organization/{id}', 'EventOrganizationController@show');
-
-// Delete Event Organization
-Route::delete('event_organization/{id}', 'EventOrganizationController@destroy');
-
-// Create new Event Organization
-Route::post('event_organization', 'EventOrganizationController@store');
-
-// Update Event Organization
-Route::put('event_organization', 'EventOrganizationController@store');
-
-/* -------------------------------------------------------------------------- */
-
-
-
-
 Route::get('athletes', 'AthleteController@index');
 
-// List organizations
-Route::get('eventnames', 'EventNameController@index');
 
-// List single organization
-Route::get('eventname/{id}', 'EventNameController@show');
+/* ========================================================================== */
+/* TABLE: Event_Organizations                                                 */
+/* ========================================================================== */
 
-// Create new organization
-Route::post('eventname', 'EventNameController@store');
+// RETRIEVE "All" Event Organizations
+Route::get('event_organizations', 'EventOrganizationController@index');
 
-// Update organization
-Route::put('eventname', 'EventNameController@store');
+// RETRIEVE "One" Event Organization
+Route::get('event_organization/{id}', 'EventOrganizationController@show');
 
-// Delete organization
-Route::delete('eventname/{id}', 'EventNameController@destroy');
+// DELETE an Event Organization
+Route::delete('event_organization/{id}', 'EventOrganizationController@destroy');
+
+// CREATE a "New" Event Organization
+Route::post('event_organization', 'EventOrganizationController@store');
+
+// UPDATE an "Existing" Event Organization
+Route::put('event_organization', 'EventOrganizationController@store');
+/* -------------------------------------------------------------------------- */
+
+
+/* ========================================================================== */
+/* TABLE: Event_Names                                                         */
+/* ========================================================================== */
+
+// RETRIEVE "All" Event Names
+Route::get('event_names', 'EventNameController@index');
+
+// RETRIEVE "One" Event Name
+Route::get('event_name/{id}', 'EventNameController@show');
+
+// DELETE an Event Name
+Route::post('event_name', 'EventNameController@store');
+
+// CREATE a "New" Event Name
+Route::put('event_name', 'EventNameController@store');
+
+// UPDATE an "Existing" Event Name
+Route::delete('event_name/{id}', 'EventNameController@destroy');
+/* -------------------------------------------------------------------------- */
+
+
