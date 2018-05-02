@@ -23,6 +23,8 @@
 </template>
 
 <script>
+   import axios from 'axios';
+   import api from '../../../../utils/api';
 	export default {
    	data() {
    		return {}
@@ -32,7 +34,7 @@
 				return this.$store.getters.organizations;
 			},
 			selectedRow() {
-				return this.$store.state.organizations.selected;
+				return this.$store.state.eventOrganizations.selected;
 			},
 		},
        created() {

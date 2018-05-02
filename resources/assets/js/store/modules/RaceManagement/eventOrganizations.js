@@ -40,8 +40,7 @@ const mutations = {
 };
 const actions = {
 	initOrganizations: ({commit}) => {
-		api.eventOrganizations('/api/organizations').getAll()
-		// axios.get('/api/organizations')
+		api.eventOrganizations('/api/event_organizations').getAll()
 			.then(response => {
 				console.log(response)
 				commit('initOrganizations', response.data)
@@ -52,8 +51,7 @@ const actions = {
 			})
 	},
 	createOrganization: ({commit}, newOrganization) => {
-		api.eventOrganizations('/api/organization').create(newOrganization)
-		// axios.post('/api/organization', newOrganization)
+		api.eventOrganizations('/api/event_organization').create(newOrganization)
 			.then(response => {
 				commit('createOrganization', response.data)
 				commit('resetState')
@@ -61,8 +59,7 @@ const actions = {
 			.catch(error => console.log(error))
 	},
 	updateOrganization({commit}, updatedOrganization) {
-		api.eventOrganizations('/api/organization').update(updatedOrganization)
-		// axios.put('/api/organization', updatedOrganization)
+		api.eventOrganizations('/api/event_organization').update(updatedOrganization)
 			.then(response => {
 				commit('updateOrganization', response.data)
 				commit('resetState')
@@ -70,10 +67,10 @@ const actions = {
 			.catch(error => console.log(error))
 	},
 	deleteOrganization: ({commit}, id) => {
-		api.eventOrganizations('/api/organization').delete(id)
-		// axios.delete('/api/organization/' + id)
+		api.eventOrganizations('/api/event_organization').delete(id)
 			.then(response => {
-				commit('deleteOrganization', response.data.id)
+				console.log(response.data.id);
+				commit('deleteOrganization', response.data.id);
 				commit('resetState')
 			})
 			.catch(error => console.log(error))

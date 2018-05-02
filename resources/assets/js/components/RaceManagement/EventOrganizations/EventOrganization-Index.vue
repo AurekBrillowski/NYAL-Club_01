@@ -16,8 +16,7 @@
                <create-action :triggerCreate="triggerCreateAction"></create-action>
             </v-flex>
             <v-flex xs1>
-               <v-btn color="red" @click.native.stop="showDeleteDialog = true">Delete</v-btn>
-               <delete-action :dialog="showDeleteDialog" @close="showDeleteDialog = false">Are you sure you want to delete this Organization?</delete-action>
+               <eo-delete-action></eo-delete-action>
             </v-flex>
          </v-layout>
          <v-layout justify-center>
@@ -32,7 +31,7 @@
 <script>
 	import EO_CreateForm from './CRUD-Actions/EO-CreateForm.vue'
 	import EO_UpdateForm from './CRUD-Actions/EO-UpdateForm.vue'
-   import DeleteAction from '../Shared/DeleteAction.vue'
+   import EO_DeleteAction from './CRUD-Actions/EO-DeleteAction.vue'
    import CreateAction from '../Shared/CreateAction.vue'
 	import EO_DataTable from './DataTable/EO-DataTable.vue'
 	export default {
@@ -58,7 +57,7 @@
 			'eo-create-form': EO_CreateForm,
 			'eo-update-form': EO_UpdateForm,
 			'eo-data-table': EO_DataTable,
-			'delete-action': DeleteAction,
+			'eo-delete-action': EO_DeleteAction,
 			'create-action': CreateAction,
 		},
 	}

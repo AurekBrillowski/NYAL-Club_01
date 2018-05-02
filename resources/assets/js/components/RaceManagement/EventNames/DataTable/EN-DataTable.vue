@@ -8,15 +8,13 @@
             <th class="header_4">TH - 4</th>
          </tr>
          <!--<tr-->
-         <!--v-for="organization in organizations"-->
-         <!--:key="organization.id"-->
-         <!--@click="selectRow(organization)"-->
-         <!--:class="{ selected: selectedRow === organization }"-->
+         <!--v-for="eventName in eventNames"-->
+         <!--:key="eventName.id"-->
          <!--&gt;-->
-            <!--<td>{{ organization.organization_name }}</td>-->
-            <!--<td>{{ organization.organization_abbreviation }}</td>-->
-            <!--<td>{{ organization.organization_website }}</td>-->
-            <!--<td>{{ organization.rm_state }}</td>-->
+            <!--<td>{{ eventName.organization_name }}</td>-->
+            <!--<td>{{ eventName.organization_abbreviation }}</td>-->
+            <!--<td>{{ eventName.organization_website }}</td>-->
+            <!--<td>{{ eventName.rm_state }}</td>-->
          <!--</tr>-->
       </table>
    </v-flex>
@@ -24,17 +22,17 @@
 
 <script>
 	export default {
-//		computed: {
-//			organizations() {
-//				return this.$store.getters.organizations;
-//			},
+		computed: {
+			organizations() {
+				return this.$store.getters.organizations;
+			},
 //			selectedRow() {
 //				return this.$store.state.organizations.selected;
 //			},
-//		},
-//		created() {
-//			this.$store.dispatch('initOrganizations')
-//		},
+		},
+		created() {
+			this.$store.dispatch('initEventNames')
+		},
 //		methods: {
 //			selectRow(organization) {
 //				this.$store.commit('selectRow', organization);
