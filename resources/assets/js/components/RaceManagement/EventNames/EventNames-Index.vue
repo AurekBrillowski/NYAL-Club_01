@@ -17,22 +17,22 @@
          </v-layout>
          <v-layout justify-center>
             <en-data-table></en-data-table>
-            <!--<en-create-form v-if="createAction"></en-create-form>-->
-            <en-update-form></en-update-form>
+            <en-create-form></en-create-form>
+            <!--<en-update-form></en-update-form>-->
          </v-layout>
       </v-flex>
    </v-layout>
 </template>
 
 <script>
-	//	import EN_CreateForm from './CRUD-Actions/EN-CreateForm.vue'
+    import EN_CreateForm from './CRUD-Actions/EN-CreateForm.vue'
 	import EN_UpdateForm from './CRUD-Actions/EN-UpdateForm.vue'
 //	import EN_CreateAction from './CRUD-Actions/EN-CreateAction.vue'
 //	import EN_DeleteAction from './CRUD-Actions/EN-DeleteAction.vue'
 	import EN_DataTable from './DataTable/EN-DataTable.vue'
 	export default {
 		components: {
-//		  'ec-create-form': EN_CreateForm,
+		   'en-create-form': EN_CreateForm,
 			'en-update-form': EN_UpdateForm,
 			'en-data-table': EN_DataTable,
 //			'en-create-action': EN_CreateAction,

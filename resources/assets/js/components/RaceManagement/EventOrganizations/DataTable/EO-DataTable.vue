@@ -23,8 +23,6 @@
 </template>
 
 <script>
-   import axios from 'axios';
-   import api from '../../../../utils/api';
 	export default {
    	data() {
    		return {}
@@ -37,9 +35,9 @@
 				return this.$store.state.eventOrganizations.selected;
 			},
 		},
-       created() {
-			this.$store.dispatch('initOrganizations')
-       },
+//       created() {
+//			this.$store.dispatch('initOrganizations')
+//       },
 		methods: {
 			selectRow(organization) {
 				this.$store.commit('selectRow', organization);
@@ -49,6 +47,20 @@
 	}
 </script>
 
-<style>
-
+<style scoped>
+   table {
+      width: 95%;
+   }
+   .header_1 {
+      width: 250px;
+   }
+   .header_2 {
+      width: 100px;
+   }
+   .header_3 {
+      width: 120px;
+   }
+   .header_4 {
+      width: 80px;
+   }
 </style>
