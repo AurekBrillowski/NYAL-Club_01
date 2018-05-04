@@ -51,13 +51,13 @@ Route::get('event_names', 'EventNameController@index');
 // RETRIEVE "One" Event Name
 Route::get('event_name/{id}', 'EventNameController@show');
 
-// DELETE an Event Name
+// CREATE a "New" Event Name
 Route::post('event_name', 'EventNameController@store');
 
-// CREATE a "New" Event Name
+// UPDATE a "Existing" Event Name
 Route::put('event_name', 'EventNameController@store');
 
-// UPDATE an "Existing" Event Name
+// DELETE an "Existing" Event Name
 Route::delete('event_name/{id}', 'EventNameController@destroy');
 /* -------------------------------------------------------------------------- */
 

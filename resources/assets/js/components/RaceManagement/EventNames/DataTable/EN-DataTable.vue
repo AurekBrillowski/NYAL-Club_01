@@ -1,49 +1,58 @@
 <template>
    <v-flex xs12 sm5 md7>
-      <table>
-         <tr>
-            <th class="header_1">TH - 1</th>
-            <th class="header_2">TH - 2</th>
-            <th class="header_3">TH - 3</th>
-            <th class="header_4">TH - 4</th>
-         </tr>
-         <!--<tr-->
-         <!--v-for="organization in organizations"-->
-         <!--:key="organization.id"-->
-         <!--@click="selectRow(organization)"-->
-         <!--:class="{ selected: selectedRow === organization }"-->
-         <!--&gt;-->
-            <!--<td>{{ organization.organization_name }}</td>-->
-            <!--<td>{{ organization.organization_abbreviation }}</td>-->
-            <!--<td>{{ organization.organization_website }}</td>-->
-            <!--<td>{{ organization.rm_state }}</td>-->
-         <!--</tr>-->
+      <table class="fixed_header">
+         <thead>
+            <tr>
+               <th>Event Name</th>
+               <th>Season</th>
+               <th>Type</th>
+               <th>Website</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr
+            v-for="eventName in filteredEventNames"
+            :key="eventName.id"
+            >
+               <td>{{ eventName.event_name }}</td>
+               <td>{{ eventName.NYAL_Season_id | showSeason }}</td>
+               <td>{{ eventName.Event_Type_id }}</td>
+               <td>{{ eventName.race_website }}</td>
+            </tr>
+         </tbody>
       </table>
    </v-flex>
 </template>
 
 <script>
 	export default {
-//		computed: {
-//			organizations() {
-//				return this.$store.getters.organizations;
-//			},
+		computed: {
+			eventNames() {
+				return this.$store.getters.eventNames;
+			},
 //			selectedRow() {
 //				return this.$store.state.organizations.selected;
 //			},
-//		},
-//		created() {
-//			this.$store.dispatch('initOrganizations')
-//		},
-//		methods: {
-//			selectRow(organization) {
-//				this.$store.commit('selectRow', organization);
-//				console.log(organization);
-//			},
-//		}
+         filteredEventNames() {
+				let selectedOrganization = this.$store.state.eventOrganizations.selected;
+				return this.$store.getters.eventNames.filter(name => {
+					return name.Event_Organization_id === selectedOrganization.id;
+            });
+         },
+		},
+       filters: {
+			showSeason(value) {
+				if (value === 1) {
+					return value = 'Spring'
+            } else if (value === 2) {
+					return value = 'Summer'
+            } else if (value === 3) {
+					return value = 'Fall'
+            }
+         },
+       },
 	}
 </script>
 
-<style>
-
+<style scoped>
 </style>
