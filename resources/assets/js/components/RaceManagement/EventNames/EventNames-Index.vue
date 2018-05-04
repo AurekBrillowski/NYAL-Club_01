@@ -6,7 +6,13 @@
                <div slot="header" class="headline text-md-center">L2b - Event Names</div>
                <v-card>
                   <v-card-text>
-                     This is some example text.
+                     <v-flex xs10>
+                        <v-layout row wrap>
+                           <v-flex xs4>
+                              <v-text-field append-icon="search" label="Search Event Names" hide-details></v-text-field>
+                           </v-flex>
+                        </v-layout>
+                     </v-flex>
                   </v-card-text>
                </v-card>
             </v-expansion-panel-content>
@@ -26,7 +32,7 @@
 
 <script>
     import EN_CreateForm from './CRUD-Actions/EN-CreateForm.vue'
-	import EN_UpdateForm from './CRUD-Actions/EN-UpdateForm.vue'
+    import EN_UpdateForm from './CRUD-Actions/EN-UpdateForm.vue'
 //	import EN_CreateAction from './CRUD-Actions/EN-CreateAction.vue'
 //	import EN_DeleteAction from './CRUD-Actions/EN-DeleteAction.vue'
 	import EN_DataTable from './DataTable/EN-DataTable.vue'
