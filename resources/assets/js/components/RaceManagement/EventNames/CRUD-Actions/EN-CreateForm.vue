@@ -1,6 +1,6 @@
 <template>
    <v-flex xs12 sm5 md4>
-      <ka-form ref="updateForm">
+      <ka-form>
          <template slot="form_inputs">
             <v-layout row wrap>
                <v-flex xs6>
@@ -62,8 +62,8 @@
                   </v-select>
                </v-flex>
                <v-flex xs6>
-                  <v-checkbox label="Club Race" v-model="newEvent.club_race" hide-details></v-checkbox>
-                  <v-checkbox label="School Race" v-model="newEvent.school_race" hide-details></v-checkbox>
+                  <v-checkbox label="Club Race" v-model="newEvent.club_race" true-value="1" false-value="0" hide-details></v-checkbox>
+                  <v-checkbox label="School Race" v-model="newEvent.school_race" true-value="1" false-value="0" hide-details></v-checkbox>
                </v-flex>
             </v-layout>
             <v-layout row wrap>
@@ -71,6 +71,7 @@
                   <v-text-field
                   label="Current Year"
                   v-model="newEvent.current_year_date"
+                  mask="####-##-##"
                   hide-details
                   >
                   </v-text-field>
@@ -90,7 +91,7 @@
          </template>
          <template slot="form_actions">
             <v-spacer></v-spacer>
-            <v-btn color="red">
+            <v-btn color="red" @click="cancelEventNameCreation">
                Cancel
             </v-btn>
             <v-btn color="green" @click="createEventName">
@@ -108,50 +109,36 @@
 			return {
 			   newEvent: {
 			   	event_name: '',
-			   	Event_Organization_id: '',
+			      Event_Organization_id: '',
                race_website: '',
 			   	Event_Type_id: '',
 			   	NYAL_Season_id: '',
                club_race: true,
                school_race: false,
-               current_year_date: new Date().getFullYear(),
+               current_year_date: '',
                month_id: 5,
 				},
-			   months: [
-				 {text: "January", value: 1},
-				 {text: "February", value: 2},
-				 {text: "March", value: 3},
-				 {text: "April", value: 4},
-				 {text: "May", value: 5},
-				 {text: "June", value: 6},
-				 {text: "July", value: 7},
-				 {text: "August", value: 8},
-				 {text: "September", value: 9},
-				 {text: "October", value: 10},
-				 {text: "November", value: 11},
-				 {text: "December", value: 12}
-			 ],
-            eventTypes: [
-                { text: 'NOT ASSIGNED', value: 1 },
-                { text: 'Cross Country Meet', value: 2 },
-                { text: 'Track Meet', value: 3 },
-                { text: 'Road Race', value: 4 },
-                { text: 'Trail Run', value: 5 },
-                { text: 'Fun Run', value: 6 },
-                { text: 'Ultra', value: 7 },
-            ],
-            seasons: [
-                { text: 'Spring', value: 1 },
-                { text: 'Summer', value: 2 },
-                { text: 'Fall', value: 3 },
-            ]
 			}
 		},
 		methods: {
 			createEventName() {
 				this.$store.dispatch('createEventName', this.newEvent)
 			},
+          cancelEventNameCreation() {
+				this.$store.commit('cancelEventNameCreation')
+          },
 		},
+      computed: {
+			months() {
+				return this.$store.state.eventNames.months;
+         },
+			eventTypes() {
+				return this.$store.state.eventNames.eventTypes;
+         },
+			seasons() {
+				return this.$store.state.eventNames.seasons;
+         },
+      },
 		components: {
 			'ka-form': KAForm
 		}

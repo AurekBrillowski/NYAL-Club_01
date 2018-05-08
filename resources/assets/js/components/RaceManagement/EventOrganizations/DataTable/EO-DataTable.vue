@@ -1,6 +1,6 @@
 <template>
    <v-flex xs12 sm5 md7>
-      <table>
+      <table class="event-org-table">
          <tr>
             <th class="header_1">Name</th>
             <th class="header_2">Abbr.</th>
@@ -48,7 +48,7 @@
 </script>
 
 <style scoped>
-   table {
+   .event-org-table {
       width: 95%;
    }
    .header_1 {

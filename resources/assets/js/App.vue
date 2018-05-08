@@ -1,11 +1,11 @@
 <template>
    <v-app dark>
       <v-navigation-drawer
-         persistent
-         :clipped="clipped"
-         v-model="drawer"
-         fixed
-         app
+      persistent
+      :clipped="clipped"
+      v-model="drawer"
+      fixed
+      app
       >
          <v-list dense>
             <v-list-tile>
@@ -29,8 +29,8 @@
          </v-list>
       </v-navigation-drawer>
       <v-toolbar
-         app
-         :clipped-left="clipped"
+      app
+      :clipped-left="clipped"
       >
          <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
          <v-toolbar-title v-text="title"></v-toolbar-title>
@@ -48,16 +48,16 @@
 
 <script>
 	export default {
-		name: 'ka-home',
+		name: 'App',
 		data () {
 			return {
 				clipped: false,
 				drawer: false,
 				fixed: false,
 				items: [
-//				   {title: 'Home', href: '/', icon: 'home', router: true},
-				   {title: 'Race Management', href: '/', icon: 'directions_run', router: true},
-            ],
+					{title: 'Race Management', href: '/', icon: 'directions_run', router: true},
+					{title: 'Athlete Management', href: '/', icon: 'group', router: true},
+				],
 				title: 'National Youth Athletics League - Admin'
 			}
 		},

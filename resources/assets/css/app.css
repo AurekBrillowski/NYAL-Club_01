@@ -1,0 +1,53 @@
+.input-group label {
+	font-size: 14px;
+	line-height: 35px;
+}
+
+.input-group--text-field input,
+.input-group--text-field textarea {
+	font-size: 14px;
+}
+
+.input-group--select .input-group__selections__comma {
+	font-size: 14px;
+}
+
+table {
+	font-family: 'Open Sans', Helvetica;
+	background: #efefef;
+	border-collapse: collapse;
+	margin: 0 auto;
+//width: 95%;
+	line-height: 15px;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+td, th {
+	border: 1px solid #c4d6df;
+	text-align: center;
+}
+th {
+	color: #D5DDE5;
+	background: #1b1e24;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 10px 15px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+tr {
+	color: #666B85;
+	cursor: pointer;
+}
+td {
+	padding: 8px 5px;
+	font-size: 12px;
+	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+}
+tr:hover td {
+	background: #4E5066;
+	color: #FFFFFF;
+}
+.selected {
+	background: #4E5066;
+	color: #FFFFFF;
+}

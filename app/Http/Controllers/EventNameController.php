@@ -73,6 +73,8 @@ class EventNameController extends Controller
         $eventName->event_name = $request->input('event_name');
         $eventName->alpha_sort_name = $request->input('alpha_sort_name');
         $eventName->NYAL_Season_id = $request->input('NYAL_Season_id');
+        $eventName->Event_Organization_id = $request->input('Event_Organization_id');
+        $eventName->Event_Type_id = $request->input('Event_Type_id');
         $eventName->club_race = $request->input('club_race');
         $eventName->school_race = $request->input('school_race');
         $eventName->month_id = $request->input('month_id');
