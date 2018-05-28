@@ -7,6 +7,7 @@
                   <v-text-field
                   label="Organization Name"
                   v-model="organizationName"
+                  :value="this.$store.state.eventOrganizations.crudActions.edit ? organizationName : ''"
                   hide-details
                   >
                   </v-text-field>
@@ -74,7 +75,7 @@
 </template>
 
 <script>
-	import KAForm from '../../../Base/KA-Form.vue'
+	import KAForm from '../../Base/KA-Form.vue'
 	export default {
 		computed: {
 			organizationName: {
@@ -134,7 +135,7 @@
 			}
 		},
 		components: {
-			'ka-form': KAForm
+			'ka-form': KAForm,
 		}
 	}
 </script>

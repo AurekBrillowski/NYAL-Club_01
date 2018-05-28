@@ -9,8 +9,8 @@
 </template>
 
 <script>
-	import NYAL_Event_Organizations from '../../components/RaceManagement/EventOrganizations/EventOrganization-Index.vue'
-   import NYAL_Event_Names from '../../components/RaceManagement/EventNames/EventNames-Index.vue'
+	import NYAL_Event_Organizations from '../../components/RaceManagement/EventOrganizations/index.vue'
+   import NYAL_Event_Names from '../../components/RaceManagement/EventNames/index.vue'
 //   import NYAL_Event_Contacts from '../../components/RaceManagement/EventContacts/EventContacts-Index.vue'
 //	import NYAL_Event_Instances from '../../components/RaceManagement/EventInstances/EventInstances-Index.vue'
 //	import NYAL_Event_Instance_Races from '../../components/RaceManagement/EventInstanceRaces/EventInstanceRaces-Index.vue'

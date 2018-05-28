@@ -16,7 +16,10 @@
                <create-action :triggerCreate="triggerCreateAction"></create-action>
             </v-flex>
             <v-flex xs1>
-               <eo-delete-action></eo-delete-action>
+               <v-btn color="red" @click.native.stop="showDeleteDialog = true" :disabled="deleteTrigger">Delete</v-btn>
+               <eo-delete-dialog :dialog="showDeleteDialog" :submitAction="deleteOrganization" @close="showDeleteDialog = false">
+                  Are you sure you want to delete this organization?
+               </eo-delete-dialog>
             </v-flex>
          </v-layout>
          <v-layout justify-center>
@@ -31,7 +34,7 @@
 <script>
 	import EO_CreateForm from './CRUD-Actions/EO-CreateForm.vue'
 	import EO_UpdateForm from './CRUD-Actions/EO-UpdateForm.vue'
-   import EO_DeleteAction from './CRUD-Actions/EO-DeleteAction.vue'
+   import Dialog from '../Shared/KA-Dialog.vue'
    import CreateAction from '../Shared/CreateAction.vue'
 	import EO_DataTable from './DataTable/EO-DataTable.vue'
 	export default {
@@ -44,20 +47,27 @@
 	       triggerCreateAction() {
 		       this.$store.commit('triggerCreateAction')
 	       },
+	       deleteOrganization() {
+		       this.$store.dispatch('deleteOrganization', this.$store.state.eventOrganizations.selected.id);
+		       this.showDeleteDialog = false;
+	       }
        },
-		computed: {
-			createAction() {
-				return this.$store.state.eventOrganizations.crudActions.create
-			},
-			editAction() {
-				return this.$store.state.eventOrganizations.crudActions.edit
-			},
-		},
+	   computed: {
+		   createAction() {
+			   return this.$store.state.eventOrganizations.crudActions.create
+		   },
+		   editAction() {
+			   return this.$store.state.eventOrganizations.crudActions.edit
+		   },
+		   deleteTrigger() {
+			   return this.$store.state.eventOrganizations.deleteDialog;
+		   },
+	   },
 		components: {
 			'eo-create-form': EO_CreateForm,
 			'eo-update-form': EO_UpdateForm,
 			'eo-data-table': EO_DataTable,
-			'eo-delete-action': EO_DeleteAction,
+			'eo-delete-dialog': Dialog,
 			'create-action': CreateAction,
 		},
 	}

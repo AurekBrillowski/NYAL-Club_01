@@ -1,7 +1,6 @@
 <template>
    <v-flex xs12 sm5 md4>
-      <v-alert type="success" dismissible v-model="successAlert">Successfully added Organization.</v-alert>
-      <ka-form ref="updateForm">
+      <ka-form ref="createForm">
          <template slot="form_inputs">
             <v-layout row wrap>
                <v-flex xs8>
@@ -85,7 +84,7 @@
 </template>
 
 <script>
-	import KAForm from '../../../Base/KA-Form.vue'
+	import KAForm from '../../Base/KA-Form.vue'
    import { required, maxLength, url } from 'vuelidate/lib/validators'
 	export default {
 		data() {
@@ -97,8 +96,7 @@
 					contact_name: '',
 					contact_phone: '',
                rm_state: 'TX',
-            },
-             successAlert: false,
+            }
 			}
 		},
 		methods: {
