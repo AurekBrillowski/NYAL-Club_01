@@ -16,7 +16,13 @@
                <create-action :triggerCreate="triggerCreateAction"></create-action>
             </v-flex>
             <v-flex xs1>
-               <v-btn color="red" @click.native.stop="showDeleteDialog = true" :disabled="deleteTrigger">Delete</v-btn>
+               <v-btn
+                  color="red"
+                  @click.native.stop="showDeleteDialog = true"
+                  :disabled="deleteTrigger"
+               >
+                  Delete
+               </v-btn>
                <eo-delete-dialog :dialog="showDeleteDialog" :submitAction="deleteOrganization" @close="showDeleteDialog = false">
                   Are you sure you want to delete this organization?
                </eo-delete-dialog>
@@ -24,19 +30,19 @@
          </v-layout>
          <v-layout justify-center>
             <eo-data-table></eo-data-table>
-            <eo-create-form v-if="createAction"></eo-create-form>
-            <eo-update-form v-if="editAction"></eo-update-form>
+            <create-organization v-if="createAction"></create-organization>
+            <update-organization v-if="editAction"></update-organization>
          </v-layout>
       </v-flex>
    </v-layout>
 </template>
 
 <script>
-	import EO_CreateForm from './CRUD-Actions/EO-CreateForm.vue'
-	import EO_UpdateForm from './CRUD-Actions/EO-UpdateForm.vue'
+	import CreateOrganization from './CreateOrganization.vue'
+	import UpdateOrganization from './UpdateOrganization.vue'
+   import EO_DataTable from './DataTable.vue'
    import Dialog from '../Shared/KA-Dialog.vue'
    import CreateAction from '../Shared/CreateAction.vue'
-	import EO_DataTable from './DataTable/EO-DataTable.vue'
 	export default {
 		data() {
 			return {
@@ -64,8 +70,8 @@
 		   },
 	   },
 		components: {
-			'eo-create-form': EO_CreateForm,
-			'eo-update-form': EO_UpdateForm,
+			'create-organization': CreateOrganization,
+			'update-organization': UpdateOrganization,
 			'eo-data-table': EO_DataTable,
 			'eo-delete-dialog': Dialog,
 			'create-action': CreateAction,
